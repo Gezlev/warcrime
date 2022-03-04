@@ -1,0 +1,56 @@
+.btn {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'eUkraine',-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  border: 2px solid;
+
+  &_cta {
+    height: 48px;
+    font-size: 12px;
+    padding-left: 32px;
+    padding-right: 32px;
+    border-radius: 50px;
+
+    @media (min-width: 768px) {
+      height: 56px;
+      font-size: 16px;
+      padding-left: 40px;
+      padding-right: 40px;
+      border-radius: 60px;
+    }
+  }
+
+  &_green {
+    color: #FFF;
+    border-color: #19BE6F;
+    background-color: #19BE6F;
+  }
+
+  &_tg {
+    color: #FFF;
+    background-color: #0088CC;
+  }
+
+  &_lg {
+    height: 64px;
+    min-width: 240px;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+    padding-left: 44px;
+    padding-right: 44px;
+    color: #FFF;
+    border-radius: 60px;
+    border-color: #000;
+    background-color: #000;
+    border: 0;
+
+    &:hover {
+      border-color: #000;
+      background: linear-gradient(68.94deg, #C3AAB2 -4.77%, #99EECC 46.72%, #80C0C8 90.23%, #4B8BFA 134.46%);
+    }
+  }
+}
