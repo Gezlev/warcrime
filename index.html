@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-    <title>Військові злочини РФ </title>
+    <title>Воєнні злочини РФ </title>
     <link rel="preload" href="/public/fonts/e-Ukraine-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/public/fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
@@ -14,6 +14,55 @@
     <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="theme-color" content="#000000">
+
+
+    <style>
+        [_nghost-ysy-c63] {
+            font-family: Open Sans, sans-serif;
+            color: #121212
+        }
+    </style>
+    <script style="display: none;">
+        var tvt = tvt || {};
+        tvt.captureVariables = function(a) {
+            for (var b =
+                new Date, c = {}, d = Object.keys(a || {}), e = 0, f; f = d[e]; e++)
+                if (a.hasOwnProperty(f) && "undefined" != typeof a[f])
+                    try {
+                        var g = [];
+                        c[f] = JSON.stringify(a[f], function(h, k) {
+                            try {
+                                if ("function" !== typeof k) {
+                                    if ("object" === typeof k && null !== k) {
+                                        if (k instanceof HTMLElement || k instanceof Node || -1 != g.indexOf(k))
+                                            return;
+                                        g.push(k)
+                                    }
+                                    return k
+                                }
+                            } catch (m) {}
+                        })
+                    } catch (h) {}
+            a = document.createEvent("CustomEvent");
+            a.initCustomEvent("TvtRetrievedVariablesEvent", !0, !0, {
+                variables: c,
+                date: b
+            });
+            window.dispatchEvent(a)
+        };
+        window.setTimeout(function() {
+            tvt.captureVariables({
+                'dataLayer.hide': (function(a) {
+                    a = a.split(".");
+                    for (var b = window, c = 0; c < a.length && (b = b[a[c]], b); c++)
+                        ;
+                    return b
+                })('dataLayer.hide'),
+                'gaData': window['gaData'],
+                'dataLayer': window['dataLayer']
+            })
+        }, 2000);
+    </script>
 
 </head>
 <body>
@@ -29,7 +78,7 @@
 
 <div class="top">
     <div class="content">
-        <h1>Якщо ви є&nbsp;свідком військового злочину РФ проти цивільного населення&nbsp;— фіксуйте та&nbsp;надсилайте докази</h1>
+        <h1>Якщо ви є&nbsp;свідком воєнного злочину РФ проти цивільного населення&nbsp;— фіксуйте та&nbsp;надсилайте докази</h1>
         <div class="top__btns">
             <a href="#anketa" class="btn btn_cta btn_white">Надіслати докази</a>
             <a href="" class="btn btn_cta ">Надіслати в чат-бот Telegram</a>
@@ -39,19 +88,19 @@
 
 <div class="content">
     <a name="example"></a>
-    <h2>Приклади/докази воєнних злочинів</h2>
+    <h2>Приклади воєнних злочинів:</h2>
     <ul>
-        <li>Пошкодження об’єктів цивільної інфраструктури;</li>
-        <li>Уламки снарядів в&nbsp;межах міста;</li>
-        <li>Факти поранення/загибелі цивільних осіб внаслідок застосування зброї окупантом;</li>
-        <li>Розташування та&nbsp;використання військової техніки в&nbsp;житлових кварталах міста, ведення бойових дій окупантом в&nbsp;житлових кварталах міста;</li>
-        <li>Насилля щодо медичного персоналу, пошкодження медичного транспорту, лікарень, обладнання;</li>
-        <li>Насильство щодо духовенства, пошкодження/знищення культових споруд (храмів, мечетей, синагог тощо);</li>
-        <li>Використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та&nbsp;мед.установ;</li>
-        <li>Факти фізичного насилля, позбавлення волі цивільного населення окупантом;</li>
-        <li>Використання цивільної інфраструктури з&nbsp;військовою метою під прикриттям цивільних;</li>
-        <li>Захоплення вашого майна, пограбування окупаційними силами;</li>
-        <li>Відмова чи&nbsp;позбавлення доступу до&nbsp;медичної допомоги.</li>
+        <li>пошкодження об’єктів цивільної інфраструктури;</li>
+        <li>уламки снарядів в&nbsp;межах міста;</li>
+        <li>факти поранення/загибелі цивільних осіб внаслідок застосування зброї окупантом;</li>
+        <li>розташування та&nbsp;використання військової техніки в&nbsp;житлових кварталах міста, ведення бойових дій окупантом в&nbsp;житлових кварталах міста;</li>
+        <li>насилля щодо медичного персоналу, пошкодження медичного транспорту, лікарень, обладнання;</li>
+        <li>насильство щодо духовенства, пошкодження/знищення культових споруд (храмів, мечетей, синагог тощо);</li>
+        <li>використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та&nbsp;мед.установ;</li>
+        <li>факти фізичного насилля, позбавлення волі цивільного населення окупантом;</li>
+        <li>використання цивільної інфраструктури з&nbsp;воєнною метою під прикриттям цивільних;</li>
+        <li>захоплення майна, пограбування окупаційними силами;</li>
+        <li>відмова чи&nbsp;позбавлення доступу до&nbsp;медичної допомоги.</li>
     </ul>
 </div>
 
@@ -73,16 +122,16 @@
     <a name="anketa"></a>
     <h2>Фіксація воєнного злочину</h2>
 
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation" novalidate="">
 
         <div class="row">
 
             <div class="col-md-9">
                 <div class="fieldset">
-                    <label class="form-label">ПІБ</label>
-                    <input class="form-control" type="text" placeholder="ПІБ" required >
+                    <label class="form-label">ПІБ свідка</label>
+                    <input class="form-control" type="text" placeholder="ПІБ" required="">
                     <div class="invalid-feedback">
-                        Вкажіть ваше ім’я.
+                        Вкажіть ім’я свідка.
                     </div>
                 </div>
             </div>
@@ -90,11 +139,10 @@
             <div class="col-md-3">
                 <div class="fieldset">
                     <label class="form-label">Дата народження</label>
-                    <input class="form-control" type="date" >
+                    <input class="form-control" type="date">
                 </div>
             </div>
         </div>
-
 
         <div class="row">
             <div class="col-md-6">
@@ -102,7 +150,7 @@
                     <label class="form-label">Телефон</label>
                     <div class="input-group ">
                         <span class="input-group-text">+38</span>
-                        <input class="form-control" type="tel" placeholder="Телефон" required>
+                        <input class="form-control" type="tel" placeholder="Телефон" required="">
                         <div class="invalid-feedback">
                             Вкажіть телефон.
                         </div>
@@ -114,7 +162,7 @@
             <div class="col-md-6">
                 <div class="fieldset">
                     <label class="form-label">Email</label>
-                    <input class="form-control" type="email" placeholder="Email" required>
+                    <input class="form-control" type="email" placeholder="Email" required="">
                     <div class="invalid-feedback">
                         Вкажіть email.
                     </div>
@@ -123,28 +171,28 @@
         </div>
 
         <div class="fieldset">
-            <label class="form-label">Альтернативний канал зв’язку з автором</label>
+            <label class="form-label">Альтернативний канал зв’язку зі свідком</label>
             <input class="form-control" type="text" placeholder="Лінк на Facebook, Instagram, Tik-Tok, інше">
         </div>
 
         <div class="fieldset">
             <label class="form-label">Джерело інформації</label>
-            <select class="form-select">
-                <option>- Особисто виявлена</option>
-                <option>- Виявив в інтернеті</option>
-                <option>- Виявила інша особа</option>
+            <select class="form-select" id="sourceSelect">
+                <option>Особисто виявлена</option>
+                <option>Виявив в інтернеті</option>
+                <option>Виявила інша особа</option>
             </select>
         </div>
 
-        <div class="fieldset">
-            <label class="form-label">Детальніше про джерело</label>
-            <textarea rows="6" class="form-control" placeholder="Якщо особисто виявлена, то як саме. Або лінк на джерело в інтернеті, або ел.пошта, телефон ПІБ особи, що виявила"></textarea>
+        <div class="fieldset" id="sourceDetailsBlock" style="display: none;">
+            <label class="form-label" id="sourceDetailsBlockLabel">Детальніше про джерело</label>
+            <textarea rows="6" class="form-control" id="sourceDetailsBlockTextarea" placeholder=""></textarea>
         </div>
 
         <div class="fieldset">
             <label class="form-label">Місце події</label>
             <div class="input-group place">
-                <input class="form-control" type="text" id="location" placeholder="Місто, вулиця, номер будинку" required>
+                <input class="form-control" type="text" id="location" placeholder="Місто, вулиця, номер будинку" required="">
                 <button class="btn btn-outline-secondary" type="button" id="button-location">Визначити автоматично</button>
                 <div class="invalid-feedback">
                     Вкажіть місце події.
@@ -170,7 +218,7 @@
                     <option>-	використання вогнепальної зброї</option>
                     <option>-	пересування та застосування військової техніки у межах міст, селищ</option>
                     <option>-	уламки снарядів у межах міста</option>
-                    <option>-	використання цивільної інфраструктури з військовою метою під прикриттям цивільних;</option>
+                    <option>-	використання цивільної інфраструктури з воєнною метою під прикриттям цивільних;</option>
 
                 </optgroup>
                 <optgroup label="Докази грабежу, заволодіння та руйнування майна цивільних та держави">
@@ -192,26 +240,39 @@
 
         <div class="fieldset">
             <label class="form-label">Інформація про подію:</label>
-            <textarea rows="4" class="form-control" placeholder="Інформація про подію" required></textarea>
+            <textarea rows="4" class="form-control" placeholder="Інформація про подію" required=""></textarea>
             <div class="invalid-feedback">
                 Напишіть детальніше про те, що сталося.
             </div>
 
             <div class="form-text">
-                — Місце (розташування) (регіон, місто, вулиця, під'їзд, квартира, тощо.<br>
-                — Жертви/свідки нападу (де ця інформація може бути задокументована, детальна інформація про кількість осіб (жертв та/або свідків), їх імена, вік, завдані поранення тощо.<br>
-                — Якщо інформація стосується військовополонених, військової техніки або снаряду/ракети, (ім’я, посада, серійний номер тощо)<br>
+
+                — Місце (розташування) (регіон, місто, вулиця, під'їзд, квартира, тощо.
+                <br>
+
+                — Жертви/свідки нападу (де ця інформація може бути задокументована, детальна інформація про кількість осіб (жертв та/або свідків), їх імена, вік, завдані поранення тощо.
+                <br>
+
+                — Якщо інформація стосується військовополонених, військової техніки або снаряду/ракети, (ім’я, посада, серійний номер тощо)
+                <br>
             </div>
         </div>
 
         <div class="fieldset">
             <label for="formFile" class="form-label">Фото або відео</label>
-            <input class="form-control"  multiple type="file" id="formFile" required>
+            <input class="form-control" multiple="" type="file" id="formFile" required="">
+            <button class="btn" type="button" id="customFileInput" onclick="document.getElementById('formFile').click();">Завантажте файл</button>
             <div class="invalid-feedback">
                 Завантажте файли.
             </div>
 
         </div>
+
+        <style>
+            input[type="file"] {
+                display: none;
+            }
+        </style>
 
         <br>
         <div class="fieldset">
@@ -223,27 +284,68 @@
 <footer class="footer">
     <div class="content">
         <div class="footer__logos">
-            <div class="footer__gerb"><img src="/public/img/logo-ukraine.svg" width="50" height="50" decoding="async" loading="lazy"></div>
-            <div class="footer__ogp"><img src="/public/img/logo-ogpu.svg" width="42" height="50" decoding="async" loading="lazy">Офіс <br>Генерального <br>Прокурора</div>
+            <div class="footer__gerb">
+                <img src="/public/img/logo-ukraine.svg" width="50" height="50" decoding="async" loading="lazy">
+            </div>
+            <div class="footer__ogp">
+                <img src="/public/img/logo-ogpu.svg" width="42" height="50" decoding="async" loading="lazy">
+                Офіс
+                <br>
+                Генерального
+                <br>
+                Прокурора
+            </div>
             <h3>Матеріали будуть використані для суду в&nbsp;Гаазі.</h3>
         </div>
     </div>
-    <div class="content"><small>&copy;&nbsp;2022 Усі права захищено</small></div>
+    <div class="content row">
+        <div class="col-md-6">
+
+            Гаазькі конвенції 1899 та 1907 року:
+
+            <a href="https://ihl-databases.icrc.org/ihl/INTRO/150" target="balnk">Convention with Respect to the Laws and Customs of War on Land (The Hague Convention II)</a>
+            <a target="blank" href="https://ihl-databases.icrc.org/ihl/INTRO/195">Convention respecting the Laws and Customs of War on Land (The Hague Convention IV) </a>
+        </div>
+        <div class="col-md-6">
+
+            Женевські конвенції з протоколами:
+
+            <a target="blank" href="https://ihl-databases.icrc.org/applic/ihl/ihl.nsf/7c4d08d9b287a42141256739003e636b/fe20c3d903ce27e3c125641e004a92f3">Geneva Convention for the Amelioration of the Condition of the Wounded and Sick in Armed Forces in the Field (Geneva Convention I); </a>
+            <a target="blank" href="https://www.un.org/en/genocideprevention/documents/atrocity-crimes/Doc.31_GC-II-EN.pdf">Geneva Convention for the Amelioration of the Condition of Wounded, Sick and Shipwrecked Members of Armed Forces at Sea (Geneva Convention II); </a>
+            <a target="blank" href="https://www.un.org/en/genocideprevention/documents/atrocity-crimes/Doc.32_GC-III-EN.pdf">Geneva Convention relative to the Treatment of Prisoners of War (Geneva Convention III); </a>
+            <a target="blank" href="https://www.un.org/en/genocideprevention/documents/atrocity-crimes/Doc.33_GC-IV-EN.pdf">Geneva Convention relative to the Protection of Civilian Persons in Time of War (Geneva Convention IV). </a>
+            <a target="blank" href="https://www.ohchr.org/EN/ProfessionalInterest/Pages/ProtocolI.aspx">Protocol Additional to the 1949 Geneva Conventions of 12 August 1949, and relating to the Protection of Victims of International Armed Conflicts (Protocol I);</a>
+            <a target="blank" href="https://www.ohchr.org/en/professionalinterest/pages/protocolii.aspx">Protocol Additional to the Geneva Conventions of 12 August 1949, and relating to the Protection of Victims of Non-International Armed Conflicts (Protocol II). </a>
+            <a target="blank" href="https://www.un.org/disarmament/the-convention-on-certain-conventional-weapons/">Convention on Prohibitions or Restrictions on the Use of Certain Conventional Weapons Which May Be Deemed to Be Excessively Injurious or to Have Indiscriminate Effects; </a>
+        </div>
+
+    </div>
+    <div class="content">
+        <small>©&nbsp;2022 Усі права захищено</small>
+    </div>
 </footer>
 
+<style>
+    .footer a {
+        color: #ffda6a;
+        display: block;
+        margin-bottom: 1em;
+        font-size: 0.8em;
+    }
 
-
+    .footer a:hover {
+        color: #ffc107;
+    }
+</style>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    (function () {
-        'use strict'
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-        // Loop over them and prevent submission
+    (function() {
+        'use strict'// Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')// Loop over them and prevent submission
         Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
+            .forEach(function(form) {
+                form.addEventListener('submit', function(event) {
                     if (!form.checkValidity()) {
                         event.preventDefault()
                         event.stopPropagation()
@@ -254,7 +356,7 @@
             })
     })()
 
-    document.getElementById("button-location").addEventListener("click", function(){
+    document.getElementById("button-location").addEventListener("click", function() {
         if (navigator.geolocation) {
             let pos;
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -262,7 +364,7 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
-                axios.get("https://api.tomtom.com/search/2/reverseGeocode/"+pos.lat+","+pos.lng+".json?language=uk-UA&key=9yfKHHdqJTvbPMayQXNEZ0zWRg9ISG2K").then(function(res){
+                axios.get("https://api.tomtom.com/search/2/reverseGeocode/" + pos.lat + "," + pos.lng + ".json?language=uk-UA&key=9yfKHHdqJTvbPMayQXNEZ0zWRg9ISG2K").then(function(res) {
                     let result = "";
                     if (typeof res.data.addresses[0].address.freeformAddress !== 'undefined') {
                         result = res.data.addresses[0].address.freeformAddress;
@@ -281,6 +383,25 @@
 
     })
 
+
+
+    let sourceDetailsBlock = document.getElementById("sourceDetailsBlock");
+    let sourceDetailsBlockTextarea = document.getElementById("sourceDetailsBlockTextarea");
+
+    let sourceSelectChange = document.getElementById("sourceSelect").addEventListener("change", function(el) {
+        switch (el.target.selectedIndex) {
+            case 0:
+                sourceDetailsBlock.style.display = 'none';
+                break;
+            case 1:
+                sourceDetailsBlockTextarea.placeholder = "Лінк на джерело";
+                sourceDetailsBlock.style.display = 'block';
+                break;
+            case 2:
+                sourceDetailsBlockTextarea.placeholder = "ПІБ та контактні дані особи, що виявила";
+                sourceDetailsBlock.style.display = 'block';
+        }
+    });
 </script>
 
 </body>
