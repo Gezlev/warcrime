@@ -53,4 +53,25 @@
       background: linear-gradient(68.94deg, #C3AAB2 -4.77%, #99EECC 46.72%, #80C0C8 90.23%, #4B8BFA 134.46%);
     }
   }
+
+  &_md {
+    height: 56px;
+    max-width: 240px;
+    text-align: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-top: 40px;
+    padding-left: 32px;
+    padding-right: 32px;
+    color: #FFF;
+    border-radius: 50px;
+    border-color: #000;
+    background-color: #000;
+    border: 0;
+
+    &:hover {
+      border-color: #000;
+      background: linear-gradient(68.94deg, #C3AAB2 -4.77%, #99EECC 46.72%, #80C0C8 90.23%, #4B8BFA 134.46%);
+    }
+  }
 }

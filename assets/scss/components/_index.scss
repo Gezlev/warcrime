@@ -106,3 +106,59 @@ form {
     margin-right: auto;
   }
 }
+
+.mission {
+  padding-top: 6px;
+  padding-bottom: 64px;
+  background-color: #deeef1;
+
+
+  @media (min-width: 768px) {
+    margin-top: 40px;
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 64px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__desc {
+    padding: 0;
+    margin: 40px 0 0;
+    line-height: 32px;
+    font-size: 20px;
+  }
+
+  p {
+    margin: 16px 0 0;
+  }
+
+  ul {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+
+    li {
+      flex: 0 0 calc(33.33% - 32px);
+      max-width: 280px;
+      margin-top: 0;
+      margin-right: 32px;
+
+      &:first-of-type {
+        max-width: 330px;
+      }
+
+      &:before {
+        width: 10px;
+        height: 10px;
+        top: 6px;
+        left: 0;
+      }
+    }
+  }
+}
