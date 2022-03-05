@@ -4,16 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-    <title>Воєнні злочини РФ </title>
     <link rel="preload" href="/public/fonts/e-Ukraine-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/public/fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
     <link rel="preload" href="/public/style.css" as="style">
     <link rel="stylesheet" href="/public/style.css">
 
+    <title>Кримінальна відповідальність за #RusianWarCrimes!</title>
+    <meta name="description" content="Кримінальна відповідальність за #RusianWarCrimes!"/>
+    <meta name="keywords" content="Кримінальна відповідальність за #RusianWarCrimes!"/>
+    <meta name="news_keywords" content="Кримінальна відповідальність за #RusianWarCrimes!"/>
+    <meta name="ROBOTS" content="INDEX, FOLLOW, ALL"/>
+
     <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="theme-color" content="#000000">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5XMD2XT');</script>
+    <!-- End Google Tag Manager -->
+
+    <script>
+        String.prototype.hashCode = function() {
+            var hash = 0, i, chr;
+            if (this.length === 0) return hash;
+            for (i = 0; i < this.length; i++) {
+                chr   = this.charCodeAt(i);
+                hash  = ((hash << 5) - hash) + chr;
+                hash |= 0; // Convert to 32bit integer
+            }
+            return hash;
+        };
+
+        function generateSessionId() {
+            return Math.random().toString(20);
+        }
+    </script>
 
 
     <style>
@@ -66,6 +98,10 @@
 
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XMD2XT"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <header class="header">
     <div class="header__gerb"><img src="/public/img/logo-ukraine.svg" width="50" height="50" decoding="async" loading="lazy"></div>
@@ -81,7 +117,6 @@
         <h1>Якщо ви є&nbsp;свідком воєнного злочину РФ проти цивільного населення&nbsp;— фіксуйте та&nbsp;надсилайте докази</h1>
         <div class="top__btns">
             <a href="#anketa" class="btn btn_cta btn_white">Надіслати докази</a>
-            <a href="" class="btn btn_cta ">Надіслати в чат-бот Telegram</a>
         </div>
     </div>
 </div>
@@ -96,11 +131,11 @@
             <li>Зберігаємо інформацію для здійснення правосуддя.</li>
         </ul>
 
-        <p>Задокументовані докази будуть використовуватись для кримінального переслідування винних згідно з українським законодавством, в Міжнародному кримінальному суді в Гаазі та спеціальному трибуналі після його створення.</p>
+        <p>Задокументовані докази будуть використовуватись для кримінального переслідування причетних згідно з українським законодавством, в Міжнародному кримінальному суді в Гаазі та спеціальному трибуналі після його створення.</p>
         <p>Надсилайте відео та фото матеріали, а також будь-яку інформацію згідно з протоколом.</p>
 
         <a href="#anketa" class="btn btn_md">Заповнити анкету</a>
-        <p><b>Кримінальна відповідальність за #RusianWarCrimes!</b></p>
+        <h5>Кримінальна відповідальність за #RusianWarCrimes!</h5>
     </div>
 </div>
 
@@ -126,11 +161,11 @@
 
 <div class="content">
     <a name="how"></a>
-    <h2>Як зафіксувати воєнний злочин</h2>
+    <h2>Як зафіксувати воєнний злочин:</h2>
     <ul>
-        <li>Залиште інформацію про себе (вона під надійним захистом);</li>
-        <li>Опишіть порушення, зазначивши точне місце та&nbsp;всі подробиці (постраждалих, пошкодження, тощо);</li>
-        <li>Завантажте фото або відео докази.</li>
+        <li>залиште інформацію про себе (вона під надійним захистом);</li>
+        <li>опишіть порушення, зазначивши точне місце та&nbsp;всі подробиці (постраждалих, пошкодження, тощо);</li>
+        <li>завантажте фото або відео докази.</li>
     </ul>
 </div>
 
@@ -140,14 +175,17 @@
     <a name="anketa"></a>
     <h2>Фіксація воєнного злочину</h2>
 
-    <form class="needs-validation" novalidate="">
-
+    <form class="needs-validation" novalidate=""  name="google-sheet" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="sessionId" id="sessionId" value="">
+        <script>
+            document.getElementById("sessionId").value = generateSessionId();
+        </script>
         <div class="row">
 
             <div class="col-md-9">
                 <div class="fieldset">
                     <label class="form-label">ПІБ свідка</label>
-                    <input class="form-control" type="text" placeholder="ПІБ" required="">
+                    <input name="surname" class="form-control" type="text" placeholder="ПІБ" required="">
                     <div class="invalid-feedback">
                         Вкажіть ім’я свідка.
                     </div>
@@ -157,7 +195,7 @@
             <div class="col-md-3">
                 <div class="fieldset">
                     <label class="form-label">Дата народження</label>
-                    <input class="form-control" type="date">
+                    <input class="form-control" type="date" name="birthday">
                 </div>
             </div>
         </div>
@@ -168,7 +206,7 @@
                     <label class="form-label">Телефон</label>
                     <div class="input-group ">
                         <span class="input-group-text">+38</span>
-                        <input class="form-control" type="tel" placeholder="Телефон" required="">
+                        <input class="form-control" type="tel" placeholder="Телефон" name="tel">
                         <div class="invalid-feedback">
                             Вкажіть телефон.
                         </div>
@@ -180,7 +218,7 @@
             <div class="col-md-6">
                 <div class="fieldset">
                     <label class="form-label">Email</label>
-                    <input class="form-control" type="email" placeholder="Email" required="">
+                    <input class="form-control" type="email" placeholder="Email" name="email" >
                     <div class="invalid-feedback">
                         Вкажіть email.
                     </div>
@@ -190,27 +228,27 @@
 
         <div class="fieldset">
             <label class="form-label">Альтернативний канал зв’язку зі свідком</label>
-            <input class="form-control" type="text" placeholder="Лінк на Facebook, Instagram, Tik-Tok, інше">
+            <input class="form-control" type="text" placeholder="Лінк на Facebook, Instagram, Tik-Tok, інше" name="socialContact">
         </div>
 
         <div class="fieldset">
             <label class="form-label">Джерело інформації</label>
-            <select class="form-select" id="sourceSelect">
-                <option>Особисто виявлена</option>
-                <option>Виявив в інтернеті</option>
-                <option>Виявила інша особа</option>
+            <select class="form-select" id="sourceSelect" name="source">
+                <option value="Особисто виявлена">Особисто виявлена</option>
+                <option value="Виявив в інтернеті">Виявив в інтернеті</option>
+                <option value="Виявила інша особа">Виявила інша особа</option>
             </select>
         </div>
 
         <div class="fieldset" id="sourceDetailsBlock" style="display: none;">
             <label class="form-label" id="sourceDetailsBlockLabel">Детальніше про джерело</label>
-            <textarea rows="6" class="form-control" id="sourceDetailsBlockTextarea" placeholder=""></textarea>
+            <textarea rows="6" class="form-control" name="sourceDetails" id="sourceDetailsBlockTextarea" placeholder=""></textarea>
         </div>
 
         <div class="fieldset">
             <label class="form-label">Місце події</label>
             <div class="input-group place">
-                <input class="form-control" type="text" id="location" placeholder="Місто, вулиця, номер будинку" required="">
+                <input name="eventTarget" class="form-control" type="text" id="location" placeholder="Місто, вулиця, номер будинку" required="">
                 <button class="btn btn-outline-secondary" type="button" id="button-location">Визначити автоматично</button>
                 <div class="invalid-feedback">
                     Вкажіть місце події.
@@ -222,57 +260,49 @@
 
         <div class="fieldset">
             <label class="form-label">Тип події</label>
-            <select class="form-select">
-
-                <optgroup label="Докази вбивства та насильства відносно цивільних чи військових осіб">
-                    <option>- вбивства, поранення цивільних;</option>
-                    <option>- катування (побиття, зґвалтування, каліцтво);</option>
-                    <option>- утримання у заручниках чи полоні;</option>
-                    <option>- вбивства, поранення медичного персоналу;</option>
-                    <option>- вбивства, поранення духовенства, цивільного персоналу;</option>
-                </optgroup>
-                <optgroup label="Докази використання зброї та військової техніки РФ">
-                    <option>-	обстріли зі стрілецької зброї, артилерії чи повітря</option>
-                    <option>-	використання вогнепальної зброї</option>
-                    <option>-	пересування та застосування військової техніки у межах міст, селищ</option>
-                    <option>-	уламки снарядів у межах міста</option>
-                    <option>-	використання цивільної інфраструктури з воєнною метою під прикриттям цивільних;</option>
-
-                </optgroup>
-                <optgroup label="Докази грабежу, заволодіння та руйнування майна цивільних та держави">
-                    <option>-	привласнення та руйнування майна, транспорту, пального</option>
-                    <option>-	руйнування культурних пам’яток</option>
-                    <option>-	пошкодження обʼєктів цивільної інфраструктури</option>
-                    <option>-	пошкодження/знищення медичного транспорту, лікарень, обладнання;</option>
-                    <option>-	пошкодження/знищення культових споруд (храмів, мечетей, синагог); </option>
-                </optgroup>
-                <optgroup label="Персональні дані ворога">
-                    <option>-	персональні дані, документи, паспорти;</option>
-                    <option>-	позивні та псевдоніми;</option>
-                    <option>-	розпізнавальні знаки;</option>
-                    <option>-	використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та мед.установ;</option>
+            <select class="form-select" name="eventType">
+                <option value="вбивства, поранення цивільних">вбивства, поранення цивільних</option>
+                <option value="катування (побиття, зґвалтування, каліцтво)">катування (побиття, зґвалтування, каліцтво)</option>
+                <option value="утримання у заручниках чи полоні">утримання у заручниках чи полоні</option>
+                <option value="вбивства, поранення медичного персоналу">вбивства, поранення медичного персоналу</option>
+                <option value="вбивства, поранення духовенства, цивільного персоналу">вбивства, поранення духовенства, цивільного персоналу</option>
+                <option value="обстріли зі стрілецької зброї, артилерії чи повітря">обстріли зі стрілецької зброї, артилерії чи повітря</option>
+                <option value="використання вогнепальної зброї">використання вогнепальної зброї</option>
+                <option value="пересування та застосування військової техніки у межах міст, селищ">пересування та застосування військової техніки у межах міст, селищ</option>
+                <option value="уламки снарядів у межах міста">уламки снарядів у межах міста</option>
+                <option value="використання цивільної інфраструктури з воєнною метою під прикриттям цивільних">використання цивільної інфраструктури з воєнною метою під прикриттям цивільних</option>
+                <option value="привласнення та руйнування майна, транспорту, пального">привласнення та руйнування майна, транспорту, пального</option>
+                <option value="руйнування культурних пам’яток">руйнування культурних пам’яток</option>
+                <option value="пошкодження обʼєктів цивільної інфраструктури">пошкодження обʼєктів цивільної інфраструктури</option>
+                <option value="пошкодження/знищення медичного транспорту, лікарень, обладнання">пошкодження/знищення медичного транспорту, лікарень, обладнання</option>
+                <option value="пошкодження/знищення культових споруд (храмів, мечетей, синагог)">пошкодження/знищення культових споруд (храмів, мечетей, синагог) </option>
+                <option value="використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та мед.установ">використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та мед.установ</option>
+                <option value="інше">інше</option>
 
                 </optgroup>
             </select>
         </div>
 
         <div class="fieldset">
+            <label class="form-label">Персональні дані ворога</label>
+            <textarea rows="4" name="enemyInfo" class="form-control" placeholder="Документи, паспорти, позивні та псевдоніми, розпізнавальні знаки тощо"></textarea>
+
+        </div>
+
+
+
+        <div class="fieldset">
             <label class="form-label">Інформація про подію:</label>
-            <textarea rows="4" class="form-control" placeholder="Інформація про подію" required=""></textarea>
+            <textarea rows="4" name="eventInfo" class="form-control" placeholder="Інформація про подію" required=""></textarea>
             <div class="invalid-feedback">
                 Напишіть детальніше про те, що сталося.
             </div>
 
             <div class="form-text">
-
-                — Місце (розташування) (регіон, місто, вулиця, під'їзд, квартира, тощо.
-                <br>
-
-                — Жертви/свідки нападу (де ця інформація може бути задокументована, детальна інформація про кількість осіб (жертв та/або свідків), їх імена, вік, завдані поранення тощо.
-                <br>
-
-                — Якщо інформація стосується військовополонених, військової техніки або снаряду/ракети, (ім’я, посада, серійний номер тощо)
-                <br>
+                - місце (розташування) (регіон, місто, вулиця, під'їзд, квартира тощо);<br>
+                - жертви/свідки події;<br>
+                - детальна інформація про кількість осіб (жертв та/або свідків), їх імена, вік, завдані поранення тощо;<br>
+                - якщо інформація стосується військовополонених, військової техніки або снаряду/ракети - ім’я, посада, серійний номер тощо.<br>
             </div>
         </div>
 
@@ -282,10 +312,13 @@
             <br>
             <br>
             <label for="formFile" class="form-label">Фото або відео</label>
-            <input class="form-control" multiple="" type="file" id="formFile" required="">
+            <input class="form-control" type="file" id="formFile" name="files"   accept="image/png, image/jpeg, image/webp, image/jpg, video/mp4, application/x-mpegURL, video/MP2T, video/3gpp">
             <button class="btn" type="button" id="customFileInput" onclick="document.getElementById('formFile').click();">Завантажте файл</button>
             <div class="invalid-feedback">
                 Завантажте файли.
+            </div>
+            <div class="form-text" id="fileName">
+
             </div>
 
         </div>
@@ -318,7 +351,7 @@
                 Прокурора
             </div>
             <div class="footer__info">
-                <h3>Матеріали будуть використані для суду в&nbsp;Гаазі.</h3>
+                <h3>Зібрані матеріали будуть використані для українських та&nbsp;міжнародних судів та&nbsp;трибуналів.</h3>
                 <div class="footer__links">
                     <a href="/what-is-crime.html">Що є воєнним злочином</a>
                     <a href="/sources.html">Джерела міжнародного гуманітарного права</a>
@@ -331,6 +364,22 @@
     </div>
 </footer>
 
+<!-- Modal -->
+<div id="modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Дякуємо за вашу допомогу!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick='document.getElementById("modal").style.display="none";'>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     (function() {
@@ -339,9 +388,41 @@
         Array.prototype.slice.call(forms)
             .forEach(function(form) {
                 form.addEventListener('submit', function(event) {
+                    event.preventDefault()
+                    event.stopPropagation()
                     if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
+                    } else {
+                        const scriptURL = 'https://warcrimes.gov.ua/api';
+                        const form = document.forms['google-sheet'];
+                        let bodyFormData = new FormData(form);
+                        let object = {};
+                        bodyFormData.forEach((value, key) => object[key] = value);
+                        var json = JSON.stringify(object);
+
+                        axios({
+                            method: "post",
+                            url: scriptURL,
+                            data: json,
+                            responseType: 'json'
+                        })
+                            .then(response => {
+                                if (response.data.url) {
+                                    let formData = new FormData();
+                                    var imagefile = document.getElementById('formFile');
+                                    formData.append("image", imagefile.files[0]);
+                                    axios.(response.data.url, formData, {
+                                        headers: {
+                                            'Content-Type': 'multipart/form-data'
+                                        }
+                                    }).then(response2 => {
+                                        document.getElementById("modal").style.display="block";
+                                    });
+
+                                }
+                            })
+                            .catch(error => console.error('Error!', error.message))
+
+
                     }
 
                     form.classList.add('was-validated')
@@ -396,6 +477,17 @@
         }
     });
 </script>
+<script>
+    var inputs = document.getElementById('formFile');
+    inputs.addEventListener('change', function(e) {
+        document.getElementById("fileName").innerHTML = "";
+        for (let i=0; i<e.target.files.length;i++) {
+            document.getElementById("fileName").innerHTML += e.target.files[i].name+"<br>";
+        };
+    });
+</script>
+
+
 
 </body>
 </html>

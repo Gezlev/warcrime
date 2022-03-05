@@ -71,6 +71,7 @@
       align-items: center;
       justify-content: center;
       min-width: 280px;
+      max-width: 280px;
       margin: 32px 32px 0 0;
       text-decoration: none;
 
@@ -164,6 +165,25 @@ form {
           max-width: 330px;
         }
       }
+    }
+  }
+
+  .btn {
+    min-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 768px) {
+      //margin-left: 0;
+    }
+  }
+
+  h5 {
+    margin-top: 32px;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      //text-align: left;
     }
   }
 }
