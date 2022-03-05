@@ -35,70 +35,12 @@
     <!-- End Google Tag Manager -->
 
     <script>
-        String.prototype.hashCode = function() {
-            var hash = 0, i, chr;
-            if (this.length === 0) return hash;
-            for (i = 0; i < this.length; i++) {
-                chr   = this.charCodeAt(i);
-                hash  = ((hash << 5) - hash) + chr;
-                hash |= 0; // Convert to 32bit integer
-            }
-            return hash;
-        };
-
         function generateSessionId() {
-            return Math.random().toString(20);
+            return Date.now() + Math.random().toString(36).substring(2,9);
         }
     </script>
 
 
-    <style>
-        [_nghost-ysy-c63] {
-            font-family: Open Sans, sans-serif;
-            color: #121212
-        }
-    </style>
-    <script style="display: none;">
-        var tvt = tvt || {};
-        tvt.captureVariables = function(a) {
-            for (var b =
-                new Date, c = {}, d = Object.keys(a || {}), e = 0, f; f = d[e]; e++)
-                if (a.hasOwnProperty(f) && "undefined" != typeof a[f])
-                    try {
-                        var g = [];
-                        c[f] = JSON.stringify(a[f], function(h, k) {
-                            try {
-                                if ("function" !== typeof k) {
-                                    if ("object" === typeof k && null !== k) {
-                                        if (k instanceof HTMLElement || k instanceof Node || -1 != g.indexOf(k))
-                                            return;
-                                        g.push(k)
-                                    }
-                                    return k
-                                }
-                            } catch (m) {}
-                        })
-                    } catch (h) {}
-            a = document.createEvent("CustomEvent");
-            a.initCustomEvent("TvtRetrievedVariablesEvent", !0, !0, {
-                variables: c,
-                date: b
-            });
-            window.dispatchEvent(a)
-        };
-        window.setTimeout(function() {
-            tvt.captureVariables({
-                'dataLayer.hide': (function(a) {
-                    a = a.split(".");
-                    for (var b = window, c = 0; c < a.length && (b = b[a[c]], b); c++)
-                        ;
-                    return b
-                })('dataLayer.hide'),
-                'gaData': window['gaData'],
-                'dataLayer': window['dataLayer']
-            })
-        }, 2000);
-    </script>
 
 </head>
 <body>
@@ -259,6 +201,8 @@
                 </div>
 
             </div>
+            <input type="hidden" name="lat" value="" id="lat">
+            <input type="hidden" name="lng" value="" id="lng">
 
         </div>
 
@@ -410,7 +354,7 @@
                                     let formData = new FormData();
                                     var imagefile = document.getElementById('formFile');
                                     formData.append("image", imagefile.files[0]);
-                                    axios.(response.data.url, formData, {
+                                    axios.put(response.data.url, formData, {
                                         headers: {
                                             'Content-Type': 'multipart/form-data'
                                         }
@@ -425,7 +369,8 @@
 
                     }
 
-                    form.classList.add('was-validated')
+                    form.classList.add('was-validated');
+                    document.querySelector(".was-validated :invalid").scrollIntoView({behavior: "smooth"});
                 }, false)
             })
     })()
@@ -438,6 +383,8 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
+                document.getElementById("lat"),value = pos.lat;
+                document.getElementById("lng"),value = pos.lng;
                 axios.get("https://api.tomtom.com/search/2/reverseGeocode/" + pos.lat + "," + pos.lng + ".json?language=uk-UA&key=9yfKHHdqJTvbPMayQXNEZ0zWRg9ISG2K").then(function(res) {
                     let result = "";
                     if (typeof res.data.addresses[0].address.freeformAddress !== 'undefined') {
