@@ -45,6 +45,35 @@
     }
   }
 
+  &__info {
+  }
+
+  &__links {
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      margin-right: 32px;
+      font-size: 14px;
+      color: rgba(#FFF, 0.75);
+      text-decoration: underline;
+
+      &:hover {
+        color: #ffc107;
+      }
+
+      @media (min-width: 768px) {
+        border-bottom: 1px solid currentColor;
+        text-decoration: none;
+
+      }
+    }
+  }
+
   h3 {
     flex: 0 0 100%;
     display: flex;
