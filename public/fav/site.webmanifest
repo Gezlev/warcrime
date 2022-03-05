@@ -1,0 +1,14 @@
+{
+    "name": "warcrimes.gov.ua",
+    "short_name": "warcrimes.gov.ua",
+    "icons": [
+        {
+            "src": "\/public/fav/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
