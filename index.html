@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -31,56 +31,35 @@
     <link rel="icon" href="https://warcrimes.gov.ua/public/fav/favicon.ico" type="image/x-icon"/>
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="theme-color" content="#000000">
+
+    <!--
     <script src="/public/js/jq.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="/public/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="/public/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    -->
     <!-- Google Tag Manager -->
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start':
-                    new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5XMD2XT');
-    </script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5XMD2XT');</script>
     <!-- End Google Tag Manager -->
 
     <script>
         function generateSessionId() {
-            return Date.now() + Math.random().toString(36).substring(2, 9);
+            return Date.now() + Math.random().toString(36).substring(2,9);
         }
-    </script>
-
     </script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XMD2XT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XMD2XT"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <header class="header">
-    <div class="header__gerb">
-        <img src="/public/img/logo-ukraine.svg" width="50" height="50" decoding="async" loading="lazy" alt="Ukraine logo">
-    </div>
-    <div class="header__ogp">
-        <img src="/public/img/logo-ogpu.svg" width="42" height="50" decoding="async" loading="lazy" alt="Office of the Prosecutor General">
-        Офіс
-        <br>
-        Генерального
-        <br>
-        Прокурора
-    </div>
+    <div class="header__gerb"><img src="/public/img/logo-ukraine.svg" width="50" height="50" decoding="async" loading="lazy" alt="Ukraine logo"></div>
+    <div class="header__ogp"><img src="/public/img/logo-ogpu.svg" width="42" height="50" decoding="async" loading="lazy" alt="Office of the Prosecutor General">Офіс <br>Генерального <br>Прокурора</div>
     <nav class="header__nav">
         <a href="#example">Що фіксувати</a>
         <a href="#how">Як фіксувати</a>
@@ -93,9 +72,7 @@
         <div class="top__btns">
             <a href="#anketa" class="btn btn_cta btn_white">Надіслати докази</a>
         </div>
-        <div class="top__logo">
-            <img src="/public/img/top-logo.webp" width="200" height="150" decoding="async" loading="lazy" alt="Prosecutor General">
-        </div>
+        <div class="top__logo"><img src="/public/img/top-logo.webp" width="200" height="150" decoding="async" loading="lazy" alt="Prosecutor General"></div>
     </div>
 </div>
 
@@ -153,10 +130,14 @@
     <a name="anketa"></a>
     <h2>Фіксація воєнного злочину</h2>
 
-    <form class="needs-validation" novalidate="" name="google-sheet" method="post" enctype="multipart/form-data">
+    <form class="needs-validation" novalidate=""  name="google-sheet" method="post" enctype="multipart/form-data">
+        <input type=hidden name="platform" value="web">
         <input type="hidden" name="sessionId" id="sessionId" value="">
+        <input type=hidden name="version" id="webVersion" value="">
         <script>
             document.getElementById("sessionId").value = generateSessionId();
+            let currentDate = new Date();
+            document.getElementById("webVersion").value = 'web' + ('0' + currentDate.getDate()).slice(-2) + ('0' + (1 + currentDate.getMonth())).slice(-2);
         </script>
         <div class="row">
 
@@ -173,7 +154,7 @@
             <div class="col-md-3">
                 <div class="fieldset">
                     <label class="form-label">Дата народження</label>
-                    <input class="form-control" type="date" name="birthday">
+                    <input class="form-control" type="text" name="birthday" lang="uk-UA">
                 </div>
             </div>
         </div>
@@ -196,7 +177,7 @@
             <div class="col-md-6">
                 <div class="fieldset">
                     <label class="form-label">Email</label>
-                    <input class="form-control" type="email" placeholder="Email" name="email">
+                    <input class="form-control" type="email" placeholder="Email" name="email" >
                     <div class="invalid-feedback">
                         Вкажіть email.
                     </div>
@@ -224,17 +205,38 @@
         </div>
 
         <div class="fieldset">
+            <label class="form-label">Коли сталася подія</label>
+            <div class="input-group mb-3" id="eventPeriod">
+                <span class="input-group-text">від</span>
+                <input type="text" class="form-control" name="eventStart">
+                <span class="input-group-text">до</span>
+                <input type="text" class="form-control" name="eventEnd">
+            </div>
+        </div>
+
+        <div class="fieldset">
             <label class="form-label">Місце події</label>
             <div class="input-group place">
-                <input name="eventTarget" class="form-control" type="text" id="location" placeholder="Місто, вулиця, номер будинку" required="">
+                <input name="eventTarget" class="form-control" type="text" id="location" latlng="true" placeholder="Місто, вулиця, номер будинку або точка на карті" required="">
                 <button class="btn btn-outline-secondary" type="button" id="button-location">Визначити автоматично</button>
                 <div class="invalid-feedback">
                     Вкажіть місце події.
                 </div>
 
             </div>
-            <input type="hidden" name="lat" value="" id="lat">
-            <input type="hidden" name="lng" value="" id="lng">
+            <div id="map" style="height: 50vh;"></div>
+
+            
+            <input type="hidden" name="lat" value="">
+            <input type="hidden" name="lng" value="">
+            <input type="hidden" name="street_number" value="">
+            <input type="hidden" name="route" value="">
+            <input type="hidden" name="political" value="">
+            <input type="hidden" name="locality" value="">
+            <input type="hidden" name="administrative_area_level_2" value="">
+            <input type="hidden" name="administrative_area_level_1" value="">
+            <input type="hidden" name="country" value="">
+            <input type="hidden" name="postal_code" value="">
 
         </div>
 
@@ -258,8 +260,6 @@
                 <option value="пошкодження/знищення культових споруд (храмів, мечетей, синагог)">пошкодження/знищення культових споруд (храмів, мечетей, синагог) </option>
                 <option value="використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та мед.установ">використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та мед.установ</option>
                 <option value="інше">інше</option>
-
-                </optgroup>
             </select>
         </div>
 
@@ -269,37 +269,32 @@
 
         </div>
 
+
+
         <div class="fieldset">
             <label class="form-label">Інформація про подію:</label>
-            <textarea rows="4" name="eventInfo" class="form-control" placeholder="Інформація про подію" required=""></textarea>
+            <textarea rows="4" name="eventInfo" class="form-control" placeholder="Зазначте важливу інформацію щодо воєнного злочину відповідно до вказівок нижче" required=""></textarea>
             <div class="invalid-feedback">
                 Напишіть детальніше про те, що сталося.
             </div>
 
             <div class="form-text">
-
-                - місце (розташування) (регіон, місто, вулиця, під'їзд, квартира тощо);
-                <br>
-
-                - жертви/свідки події;
-                <br>
-
-                - детальна інформація про кількість осіб (жертв та/або свідків), їх імена, вік, завдані поранення тощо;
-                <br>
-
-                - якщо інформація стосується військовополонених, військової техніки або снаряду/ракети, вкажіть ім’я, посаду, серійний номер тощо.
-                <br>
+                - місце (розташування) (регіон, місто, вулиця, під'їзд, квартира тощо);<br>
+                - жертви/свідки події;<br>
+                - детальна інформація про кількість осіб (жертв та/або свідків), їх імена, вік, завдані поранення тощо;<br>
+                - якщо інформація стосується військовополонених, військової техніки або снаряду/ракети, вкажіть ім’я, посаду, серійний номер тощо.<br>
             </div>
         </div>
 
         <div class="fieldset">
             <label for="formFile" class="form-label">Фото або відео</label>
-            <input class="form-control" type="file" id="formFile" name="files" accept="image/png, image/jpeg, image/webp, image/jpg, video/mp4, application/x-mpegURL, video/MP2T, video/3gpp">
-            <button class="btn" type="button" id="customFileInput" onclick="document.getElementById('formFile').click();">Завантажте файл</button>
+            <input class="form-control" type="file" multiple="" id="formFile" name="files"   accept="image/png, image/jpeg, image/webp, image/jpg, video/mp4, application/x-mpegURL, video/MP2T, video/3gpp">
+            <button class="btn" type="button" id="customFileInput" onclick="document.getElementById('formFile').click();">Завантажте файли</button>
             <div class="invalid-feedback">
                 Завантажте файли.
             </div>
             <div class="form-text" id="fileName">
+
             </div>
 
         </div>
@@ -317,6 +312,8 @@
             <button class="btn btn_lg" type="submit">Надіслати</button>
         </div>
 
+
+
     </form>
 </div>
 
@@ -328,20 +325,14 @@
             </div>
             <div class="footer__ogp">
                 <img src="/public/img/logo-ogpu.svg" width="42" height="50" decoding="async" loading="lazy" alt="Office of the Prosecutor General">
-
                 Офіс
-
                 <br>
-
                 Генерального
-
                 <br>
-
                 Прокурора
-
             </div>
             <div class="footer__info">
-                <h3>Зібрані матеріали використовуватимуться українськими та міжнародними судами та трибуналами.</h3>
+                <h3>Зібрані матеріали будуть використовуватися українськими та міжнародними судами та трибуналами</h3>
                 <div class="footer__links">
                     <a href="/what-is-crime.html">Що є воєнним злочином</a>
                     <a href="/sources.html">Джерела міжнародного гуманітарного права</a>
@@ -368,13 +359,36 @@
     </div>
 </div>
 
+
+
+<script src="/public/js/vanillajs-datepicker.js"></script>
+<script>
+    const birthDate = new Datepicker(document.querySelector('input[name="birthday"]'), {
+        defaultViewDate: new Date('2004-01-01'),
+        format: 'dd.mm.yyyy',
+        weekStart: 1,
+        autohide: true
+     });
+
+    const eventPeriod = document.querySelector('#eventPeriod');
+    let rangepicker = new DateRangePicker(eventPeriod, {
+        format: 'dd.mm.yyyy',
+        weekStart: 1,
+        autohide: true
+    });
+</script>
 <script src="/public/js/axios.min.js"></script>
 <script>
     (function() {
-        'use strict' // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation') // Loop over them and prevent submission
+        'use strict'// Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')// Loop over them and prevent submission
         Array.prototype.slice.call(forms)
             .forEach(function(form) {
+                form.addEventListener("keydown", function(e) {
+                    if (e.key == "Enter") {
+                        e.preventDefault();
+                     }
+                });
                 form.addEventListener('submit', function(event) {
                     event.preventDefault()
                     event.stopPropagation()
@@ -383,9 +397,12 @@
                         const scriptURL = 'https://warcrimes.gov.ua/api';
                         const form = document.forms['google-sheet'];
                         let bodyFormData = new FormData(form);
+                        bodyFormData.append("copy", false);
                         let object = {};
                         bodyFormData.forEach((value, key) => object[key] = value);
-                        var json = JSON.stringify(object);
+                        let json = JSON.stringify(object);
+                        let imagefile = document.getElementById('formFile');
+                        let fileUploadUrl;
 
                         axios({
                             method: "post",
@@ -393,69 +410,37 @@
                             data: json,
                             responseType: 'json'
                         })
-                            .then(response => {
+                        .then(response => {
                                 if (response.data.url) {
-                                    let formData = new FormData();
-                                    var imagefile = document.getElementById('formFile');
-                                    formData.append("image", imagefile.files[0]);
-                                    axios.put(response.data.url, formData, {
-                                        headers: {
-                                            'Content-Type': 'multipart/form-data'
-                                        }
-                                    }).then(response2 => {
-                                        document.getElementById("modal").style.display = "block";
-                                    });
-
+                                    fileUploadUrl = response.data.url;
+                                } else {
+                                    console.log("fileUploadUrl not received");
                                 }
-                            })
-                            .catch(error => console.error('Error!', error.message))
-
-
+                        })
+                        .then(()=>{
+                            uploadFiles(imagefile.files, fileUploadUrl, scriptURL, json.replace('"copy":"false"', '"copy":"true"'))
+                            .then(()=> {
+                                document.getElementById("modal").style.display="block";
+                                form.reset();       
+                            });
+                        })
+                        .catch(error => console.error('Error!', error.message))
                     }
 
                     form.classList.add('was-validated');
                     let errorField = document.querySelector(".was-validated :invalid");
                     if (errorField) {
-                        errorField.scrollIntoView({
-                            behavior: "smooth"
-                        })
+                    	errorField.scrollIntoView({behavior: "smooth"})
                     }
                 }, false)
             })
     })()
 
-    document.getElementById("button-location").addEventListener("click", function() {
-        if (navigator.geolocation) {
-            let pos;
-            navigator.geolocation.getCurrentPosition(function(position) {
-                pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-                document.getElementById("lat"),
-                    value = pos.lat;
-                document.getElementById("lng"),
-                    value = pos.lng;
-                axios.get("https://api.tomtom.com/search/2/reverseGeocode/" + pos.lat + "," + pos.lng + ".json?language=uk-UA&key=9yfKHHdqJTvbPMayQXNEZ0zWRg9ISG2K").then(function(res) {
-                    let result = "";
-                    if (typeof res.data.addresses[0].address.freeformAddress !== 'undefined') {
-                        result = res.data.addresses[0].address.freeformAddress;
-                    } else {
-                        result = pos.lat + " " + pos.lng;
-                    }
-                    document.getElementById("location").value = result;
-                })
+    if (!navigator.geolocation) {
+        document.getElementById("button-location").style.display = none;
+    }
 
-            }, function() {
-                console.log("Error: The Geolocation service failed.");
-            });
-        } else {
-            console.log("Error: Your browser doesn't support geolocation.");
-        }
-
-    })
-
-
+    
 
     let sourceDetailsBlock = document.getElementById("sourceDetailsBlock");
     let sourceDetailsBlockTextarea = document.getElementById("sourceDetailsBlockTextarea");
@@ -476,26 +461,312 @@
     });
 </script>
 <script>
-    var inputs = document.getElementById('formFile');
+    let allowed_size_mb = 100;
+    let inputs = document.getElementById('formFile');
     inputs.addEventListener('change', function(e) {
         document.getElementById("fileName").innerHTML = "";
-        for (let i = 0; i < e.target.files.length; i++) {
-            document.getElementById("fileName").innerHTML += e.target.files[i].name + "<br>";
-        }
-        ;
+        for (let i=0; i<e.target.files.length;i++) {
+            let file = e.target.files[i];
+            let div = document.createElement("div");
+            let divProgressBar = '<div class="progress"><div class="progress-bar" role="progressbar" style="width: 0" filename="'+file.name+'">0%</div></div>';
+            let template = document.createElement("div");
+            template.innerHTML = divProgressBar.trim();
+            divProgressBar = template.firstChild;
+            let span = document.createElement("span")
+            span.className="badge bg-warning";
+            span.setAttribute("fileName", file.name);
+            span.innerText = "x";
+            span.addEventListener("click", function(el) {
+                for (let j = 0; j<e.target.files.length; j++) {
+                    if (e.target.files[j].name == el.target.getAttribute("fileName")) {
+                        removeFileFromFileList(j,e.target);
+                        break;
+                    }
+                }
+                el.target.parentNode.remove();
+            });
+            div.innerText = file.name;
+            if(file.size > allowed_size_mb*1024*1024) {
+                div.classList.add("text-danger");
+                div.innerText += 'Файл може дового завантажуватися через великий розмір';
+            }
+            div.appendChild(span);
+            div.appendChild(divProgressBar);
+            document.getElementById("fileName").appendChild(div);
+            
+        };
     });
 </script>
 
 <script src="https://www.google.com/recaptcha/enterprise.js?render=6Le_V7MeAAAAAKZ9kPfj_NVex4siD8oErqRuy499"></script>
 <script>
-    grecaptcha.enterprise.ready(function() {
-        grecaptcha.enterprise.execute('6Le_V7MeAAAAAKZ9kPfj_NVex4siD8oErqRuy499', {
-            action: 'homepage'
-        }).then(function(token) {
-            document.querySelector("input[name='googleReCaptcha']").value = token;
-        });
+grecaptcha.enterprise.ready(function() {
+    grecaptcha.enterprise.execute('6Le_V7MeAAAAAKZ9kPfj_NVex4siD8oErqRuy499', {action: 'homepage'}).then(function(token) {
+       document.querySelector("input[name='googleReCaptcha']").value = token;
     });
+});
 </script>
 
+<script>
+const removeFileFromFileList = function(index, input) {
+    const dt = new DataTransfer()
+    const { files } = input;
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i]
+    if (index !== i)
+      dt.items.add(file) // here you exclude the file. thus removing it.
+  }
+  
+  input.files = dt.files // Assign the updates list
+}
+</script>
+
+
+<script>
+    var fileUploadProgress = function(progressEvent, filename) {
+        let progressBar = document.querySelector("div.progress-bar[filename='"+filename+"']");
+        let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+        progressBar.style.width = percentCompleted+"%";
+        progressBar.innerText = percentCompleted+"%";
+
+    }
+    var uploadFiles = async function(files, fileUploadUrl, scriptURL, json) {
+        let i = 0;
+                            for (const file of files) {
+                                if (!fileUploadUrl) return;
+                                let formData = new FormData();
+                                formData.append("image", file);
+                                await axios.put(fileUploadUrl, formData, {
+                                        headers: {
+                                            'Content-Type': 'multipart/form-data'
+                                        },
+                                        onUploadProgress: function(f, filename = file.name)  {
+                                            fileUploadProgress(f,filename);
+                                        }
+                                });
+                                if (i < files.length - 1) {
+                                    await axios({
+                                        method: "post",
+                                        url: scriptURL,
+                                        data: json,
+                                        responseType: 'json'
+                                    }).then(response => {
+                                        if (response.data.url) {
+                                            fileUploadUrl = response.data.url;
+                                        }
+                                        else {
+                                            return;
+                                        }
+                                    }).catch(error => {
+                                        console.log(error);
+                                        return;
+                                    })
+                                }
+                                i++;
+                            }
+    };
+</script>
+
+<script src="/public/js/map.js"></script>
+<script>
+    const googleMap = (function () {
+        let mapContainerId;
+        let map;
+        let marker_default_url = 'https://maps.google.com/mapfiles/ms/icons/green-dot.png';
+        let marker_size = 45;
+        let marker, marker_first = 0;
+        let inputLocation;
+        let formName = {}
+        let geocoder;
+        let needAddressDetailsChange = false;
+
+        function setupFormAddressFields(name) {
+            formName = name;
+        }
+
+        function mapObserver() {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting && marker) {
+                        getAddressByLatLng(false);
+                    }
+                });
+
+            }, { threshold: 0 })
+
+            observer.observe(document.getElementById(mapContainerId));
+        }
+
+        function showMap(targetDivId) {
+            mapContainerId = targetDivId;
+            let center = new google.maps.LatLng(50.4354533, 30.3920264);
+            map = new google.maps.Map(document.getElementById(targetDivId), {
+                zoom: 6,
+                center: center,
+                scrollwheel: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false,
+                mapTypeControl: false
+            });
+            google.maps.event.addListener(map, 'click', function(event) {
+                addMarker(event.latLng, map);
+                setAddress();
+                needAddressDetailsChange = true;
+            });
+            geocoder  = new google.maps.Geocoder;
+            mapObserver();
+
+        }
+
+        function setAddress() {
+            if (inputLocation.getAttribute("latlng") == "true") {inputLocation.value = marker.getPosition().toUrlValue();}
+            if (typeof document.forms[formName]['lat'] !== 'undefined') {document.forms[formName]['lat'].value = marker.getPosition().lat();}
+            if (typeof document.forms[formName]['lng'] !== 'undefined') {document.forms[formName]['lng'].value = marker.getPosition().lng();}
+            needAddressDetailsChange  = true;
+
+        }
+        function setAddressFields(result) {
+            result.address_components.forEach(element => {
+                if (typeof document.forms[formName][element.types[0]] !== 'undefined') {document.forms[formName][element.types[0]].value = element.long_name }
+            });
+            needAddressDetailsChange = false;
+        }
+
+        function showMessage(type, text) {
+            alert(type + ":" + text);
+        }
+
+        function getAddressByQuery(query) {
+            geocoder.geocode({'address': query}, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    addMarker(results[0].geometry.location);
+                    map.setCenter(results[0].geometry.location);
+                }
+            });
+        }
+
+        function getAddressByLatLng(changeInput) {
+            geocoder.geocode({'location': marker.getPosition()}, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    setAddressFields(results[0]);
+                    if (changeInput) {
+                        inputLocation.value = results[0].formatted_address;
+                    }
+                }
+            });
+        }
+
+        function addMarker(location) {
+
+            let size = new google.maps.Size(marker_size, marker_size);
+            if (marker_first !=0) {
+                marker.setPosition(location);
+                return;
+            }
+
+            marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                draggable:true,
+                title:"Ти можеш мене рухати!",
+                icon: {
+                    url: marker_default_url,
+                    scaledSize: size
+                }
+            });
+            google.maps.event.addListener(marker, 'dragend', setAddress);
+            map.setCenter(location);
+            if (map.getZoom() < 12) {map.setZoom(12);}
+
+            marker.setVisible(true);
+            marker_first ++;
+
+        }
+
+
+        function findLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    addMarker(pos, map);
+                    setAddress();
+                    getAddressByLatLng(true);
+
+                    map.setCenter(pos);
+                    map.setZoom(12);
+                }, function() {
+                    showMessage("error", "Немає дозвілу на визначення місця розташування");
+                });
+            }
+        }
+
+
+
+        function initSearch(inputId, findLocationID) {
+            inputLocation = document.getElementById(inputId);
+            inputLocation.addEventListener("keydown", function(e) {
+                if (e.key == 'Enter') {
+                    e.preventDefault();
+                    getAddressByQuery(inputLocation.value);
+                }
+            })
+            let findLocationButton = document.getElementById(findLocationID);
+
+
+            google.maps.event.addDomListener(findLocationButton, "click", findLocation);
+
+            let autocomplete = new google.maps.places.Autocomplete(inputLocation, {
+                componentRestrictions: {country: 'ua'}
+            });
+            autocomplete.bindTo('bounds', map);
+
+            autocomplete.addListener('place_changed', function() {
+                inputLocation.setAttribute("latlng", false);
+                let place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    console.log("Autocomplete's returned place contains no geometry");
+                    return;
+                }
+
+                // If the place has a geometry, then present it on a map.
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);  // Why 17? Because it looks good.
+                }
+
+                addMarker(place.geometry.location, map);
+                setAddress();
+                setAddressFields(place[0]);
+            });
+        }
+
+
+
+        return {
+            showMap: showMap,
+            initSearch: initSearch,
+            setupFormAddressFields: setupFormAddressFields,
+        }
+    })();
+
+
+    function initMap() {
+        googleMap.showMap('map');
+        googleMap.setupFormAddressFields('google-sheet');
+        googleMap.initSearch('location', 'button-location');
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQzjxKNH319XtQ_TtkuxJETEYmTdwepoM&language=uk&libraries=places&callback=initMap"> </script>
+
+<style>
+    #fileName span.badge {
+        margin-left: 1em;
+    }
+</style>
 </body>
 </html>
