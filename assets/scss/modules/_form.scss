@@ -4,7 +4,9 @@
   input[type=text],
   input[type=tel],
   input[type=email],
-  input[type=date] {
+  input[type=date],
+  input[type=time] {
+    display: block;
     height: 48px;
     line-height: 40px;
     font-weight: 300;

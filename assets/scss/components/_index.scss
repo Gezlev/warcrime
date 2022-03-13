@@ -76,7 +76,7 @@
       justify-content: center;
       min-width: 280px;
       max-width: 280px;
-      margin: 16px 32px 0 0;
+      margin: 36px 32px 0 0;
       text-decoration: none;
 
       @media (min-width: 768px) {
@@ -163,9 +163,15 @@ form {
 
   &__desc {
     padding: 0;
-    margin: 40px 0 0;
-    line-height: 32px;
-    font-size: 20px;
+    margin: 24px 0 0;
+    line-height: 24px;
+    font-size: 16px;
+
+    @media (min-width: 768px) {
+      margin: 40px 0 0;
+      line-height: 32px;
+      font-size: 20px;
+    }
   }
 
   p {
@@ -176,11 +182,23 @@ form {
     margin-bottom: 40px;
 
     li {
+      display: flex;
+      align-items: center;
+      padding-left: 0;
+      margin-top: 20px;
+
+      img {
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin: 0 16px 0 0;
+      }
       &:before {
-        width: 10px;
-        height: 10px;
-        top: 6px;
-        left: 0;
+        display: none;
+        //width: 10px;
+        //height: 10px;
+        //top: 6px;
+        //left: 0;
       }
     }
 
@@ -190,12 +208,19 @@ form {
 
       li {
         flex: 0 0 calc(33.33% - 32px);
-        max-width: 280px;
+        align-items: flex-start;
+        //max-width: 280px;
         margin-top: 0;
         margin-right: 32px;
 
         &:first-of-type {
-          max-width: 330px;
+          //max-width: 330px;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
+          margin-top: 3px;
         }
       }
     }
@@ -238,4 +263,178 @@ form {
       margin-right: auto;
     }
   }
+}
+
+.iti {
+  display: block;
+}
+
+.anketa__step {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  margin-top: 48px;
+  position: relative;
+  padding-left: 56px;
+
+  @media (min-width: 768px) {
+    min-height: 52px;
+    padding-left: 72px;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 44px;
+    height: 44px;
+    padding-left: 2px;
+    padding-bottom: 12px;
+    box-sizing: border-box;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 300;
+    border-radius: 50%;
+    background-color: #f1f4f6;
+
+    @media (min-width: 768px) {
+      width: 52px;
+      height: 52px;
+      padding-left: 4px;
+      padding-bottom: 16px;
+      font-size: 18px;
+    }
+  }
+  small {
+    display: block;
+    margin-left: 2px;
+    letter-spacing: 1.5px;
+    line-height: 18px;
+    font-size: 10px;
+    opacity: 0.5;
+
+    @media (min-width: 768px) {
+      font-size: 12px;
+    }
+  }
+}
+#map {
+  height: 50vh;
+  max-height: 500px;
+  margin-top: 24px;
+}
+
+@media (min-width: 980px) {
+  form .range {
+    flex-wrap: nowrap
+  }
+}
+
+#eventPeriod {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 32px;
+
+  label {
+    display: block;
+    flex: 0 0 100%;
+
+    @media (min-width: 768px) {
+      flex: 0 0 calc(50% - 0.75rem);
+    }
+  }
+  label + label {
+    order: 2;
+    margin-top: 24px;
+
+    @media (min-width: 768px) {
+      order: initial;
+      margin-top: 0;
+      margin-left: 1.5rem;
+    }
+  }
+
+  .fieldset {
+    margin-top: 0;
+  }
+
+  .eventStart {
+    flex: calc(100% - 110px - 1rem);
+
+    @media (min-width: 768px) {
+      flex: calc(50% - 110px - 2.25rem);
+    }
+
+  }
+  .eventEnd {
+    flex: calc(100% - 110px - 1rem);
+    order: 2;
+
+    @media (min-width: 768px) {
+      flex: calc(50% - 110px - 2.25rem);
+      margin-left: 1.5rem;
+    }
+  }
+  .timeStart {
+    flex: 110px;
+    margin-left: 1rem;
+
+    @media (min-width: 768px) {
+      margin-left: 1.5rem;
+    }
+  }
+  .timeEnd {
+    flex: 110px;
+    order: 2;
+    margin-left: 1rem;
+
+    @media (min-width: 768px) {
+      margin-left: 1.5rem;
+    }
+  }
+}
+#button-location {
+  display: inline;
+  padding: 0;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #000000;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid currentColor;
+  background-color: transparent;
+
+  &:hover {
+    color: #19BE6F;
+    border-bottom: 1px solid #19BE6F;
+    background-color: transparent;
+  }
+
+  @media (min-width: 768px) {
+    line-height: 24px;
+    font-size: 16px;
+  }
+}
+.location-details {
+  margin-top: 16px;
+  color: #676767;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+#fileName span.badge {
+  margin-left: 1em;
+}
+
+.datepicker-cell.selected, .datepicker-cell.selected:hover  {
+  background-color: #242526;
+}
+.datepicker.active {
+  z-index: 999;
 }
