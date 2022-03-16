@@ -88,13 +88,21 @@
       @media (min-width: 768px) {
         display: inline-block;
         max-height: 27px;
-        margin-left: 32px;
+        margin-left: 20px;
         padding-bottom: 2px;
         font-size: 13px;
         color: #FFF;
         text-decoration: none;
         white-space: nowrap;
         border-bottom: 1px solid #FFF;
+
+        &:hover {
+          color: #ffc107;
+          border-bottom-color: #ffc107;
+        }
+      }
+      @media (min-width: 992px) {
+        margin-left: 32px;
       }
     }
   }
@@ -110,8 +118,11 @@
     }
 
     @media (min-width: 768px) {
-      margin-left: 56px;
+      margin-left: 36px;
       font-size: 13px;
+    }
+    @media (min-width: 992px) {
+      margin-left: 56px;
     }
 
     a {
