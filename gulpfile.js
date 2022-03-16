@@ -9,6 +9,8 @@ const svgmin = require('gulp-svgmin');
 const svgSprite = require('gulp-svg-sprite');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
 
 const styles = () => {
     return gulp.src('./assets/scss/**/*.scss')
@@ -21,6 +23,15 @@ const styles = () => {
         .pipe(csscomb())
         .pipe(csso())
         .pipe(gulp.dest('./public/'));
+};
+
+const js = () => {
+    return gulp.src('./assets/js/app.js')
+        .pipe(babel({
+            //presets: ["@babel/preset-env"]
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('./public/js/'));
 };
 
 const svgSpriteBuild = () => {
@@ -87,6 +98,7 @@ const watch = () => {
 };
 
 exports.svgSprite = series(svgSpriteBuild);
+exports.jsMinify = series(js);
 
 exports.devStyles = series(
     parallel(styles),

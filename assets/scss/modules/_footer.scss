@@ -93,8 +93,25 @@
     color: rgba(#FFF, 0.4);
     font-size: 12px;
 
+    a {
+      display: block;
+      margin-top: 8px;
+      color: rgba(#FFF, 0.75);
+      text-decoration: none;
+
+      &:hover {
+        color: #ffc107;
+      }
+    }
+
     @media (min-width: 768px) {
       text-align: center;
+
+      a {
+        display: inline-block;
+        margin-top: 0;
+        margin-left: 8px;
+      }
     }
   }
 }

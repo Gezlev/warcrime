@@ -1,4 +1,4 @@
-const googleMap = (function () {
+﻿const googleMap = (function () {
     let mapContainerId;
     let map;
     let marker_default_url = 'https://maps.google.com/mapfiles/ms/icons/green-dot.png';

@@ -438,3 +438,7 @@ input[type="file"] {
 .datepicker.active {
   z-index: 999;
 }
+
+.was-validated #eventPeriod .form-control:valid {
+  padding-right: 0
+}

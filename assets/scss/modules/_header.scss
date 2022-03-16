@@ -21,9 +21,15 @@
   &__gerb {
     img {
       display: block;
-      width: 40px;
-      height: 40px;
-      margin-right: 20px;
+      width: 36px;
+      height: 36px;
+      margin-right: 12px;
+
+      @media (min-width: 400px) {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+      }
 
       @media (min-width: 768px) {
         width: 50px;
@@ -34,12 +40,16 @@
 
   &__ogp {
     display: flex;
-    line-height: 14px;
-    font-size: 9px;
+    line-height: 12px;
+    font-size: 8px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     text-transform: uppercase;
     color: #FFF;
 
+    @media (min-width: 400px) {
+      line-height: 14px;
+      font-size: 9px;
+    }
     @media (min-width: 768px) {
       line-height: 16px;
       font-size: 10px;
@@ -47,9 +57,15 @@
 
     img {
       display: block;
-      width: 34px;
-      height: 40px;
-      margin: 2px 6px 0 0;
+      width: 32px;
+      height: 36px;
+      margin: 2px 4px 0 0;
+
+      @media (min-width: 400px) {
+        width: 34px;
+        height: 40px;
+        margin: 2px 6px 0 0;
+      }
 
       @media (min-width: 768px) {
         width: 42px;
@@ -60,21 +76,64 @@
   }
 
   &__nav {
-    display: none;
+    display: flex;
+    flex: 1 1 auto;
+    text-align: right;
+    justify-content: flex-end;
+    align-items: center;
 
-    @media (min-width: 768px) {
-      flex: 1 1 auto;
-      text-align: right;
-      display: block;
+    a {
+      display: none;
 
-      a {
+      @media (min-width: 768px) {
         display: inline-block;
+        max-height: 27px;
         margin-left: 32px;
         padding-bottom: 2px;
         font-size: 13px;
         color: #FFF;
         text-decoration: none;
+        white-space: nowrap;
         border-bottom: 1px solid #FFF;
+      }
+    }
+  }
+  &__contact {
+    margin-left: 16px;
+    font-size: 10px;
+    text-align: left;
+    color: #FFF;
+
+    @media (min-width: 340px) {
+      margin-left: 20px;
+      font-size: 11px;
+    }
+
+    @media (min-width: 768px) {
+      margin-left: 56px;
+      font-size: 13px;
+    }
+
+    a {
+      display: block;
+      border-bottom: 0;
+      margin-left: 0;
+      color: #e6ff03;
+
+      @media (min-width: 768px) {
+        display: inline-block;
+        margin-left: 0;
+        color: #e6ff03;
+        border-bottom: 0;
+      }
+      @media (min-width: 992px) {
+        margin-left: 8px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      + a {
+        margin-left: 48px;
       }
     }
   }
