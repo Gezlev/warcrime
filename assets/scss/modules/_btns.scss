@@ -8,13 +8,13 @@
   border: 2px solid;
   transition: background .3s ease-out;
 
+  &_yellow,
   &_cta {
     height: 48px;
     font-size: 14px;
     padding-left: 32px;
     padding-right: 32px;
     border-radius: 50px;
-    background-color: #e6ff03;
 
     @media (min-width: 768px) {
       height: 56px;
@@ -22,6 +22,23 @@
       padding-left: 40px;
       padding-right: 40px;
       border-radius: 60px;
+    }
+  }
+  &_yellow {
+    color: #e6ff03;
+    border: 1px solid #e6ff03;
+
+    &:hover {
+      color: #99EECC;
+      border-color: #99EECC;
+    }
+  }
+  &_cta {
+    border: 0;
+    background-color: #e6ff03;
+
+    &:hover {
+      background: #99EECC;
     }
   }
 
