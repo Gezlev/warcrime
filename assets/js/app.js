@@ -54,6 +54,7 @@ let rangepicker = new DateRangePicker(eventPeriod, {
                     bodyFormData.delete("timeEnd");
                     let object = {};
                     bodyFormData.forEach((value, key) => object[key] = value);
+                    object["eventType"] = bodyFormData.getAll('eventType');
                     let json = JSON.stringify(object);
                     let imagefile = document.getElementById('formFile');
                     let fileUploadUrl;
