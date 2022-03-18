@@ -7,8 +7,8 @@
     <link rel="preload" href="/public/fonts/e-Ukraine-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/public/fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
-    <link rel="preload" href="/public/style.css?v=1403" as="style">
-    <link rel="stylesheet" href="/public/style.css?v=1403">
+    <link rel="preload" href="/public/style.css?v=1803" as="style">
+    <link rel="stylesheet" href="/public/style.css?v=1803">
 
     <title>Кримінальна відповідальність за #RussianWarCrimes!</title>
     <meta name="description" content="Якщо ви стали свідком воєнного злочину РФ, фіксуйте та надсилайте докази"/>
@@ -123,8 +123,7 @@
         <li>пошкодження об’єктів цивільної інфраструктури;</li>
         <li>використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та медичних установ;</li>
         <li>використання цивільної інфраструктури з воєнною метою під прикриттям цивільних;</li>
-        <li>захоплення майна, пограбування окупаційними силами;</li>
-        <li>уламки снарядів у межах міста;</li>
+        <li>захоплення майна, пограбування окупаційними силами.</li>
     </ul>
 </div>
 
@@ -149,7 +148,7 @@
     <form class="needs-validation" novalidate="" name="google-sheet" method="post" enctype="multipart/form-data">
         <input type=hidden name="platform" value="web">
         <input type="hidden" name="sessionId" id="sessionId" value="">
-        <input type=hidden name="version" id="webVersion" value="web1403">
+        <input type=hidden name="version" id="webVersion" value="web1803">
 
         <h4 class="anketa__step"><span>1<small>/4</small></span> Інформація про свідка</h4>
         <div class="row">
@@ -241,28 +240,122 @@
         <input type="hidden" name="postal_code" value="">
 
         <h4 class="anketa__step"><span>4<small>/4</small></span> Інформація про подію</h4>
+
         <div class="fieldset">
             <label class="form-label">Тип події</label>
-            <select class="form-select" name="eventType">
-                <option value="вбивства, поранення цивільних">вбивства, поранення цивільних</option>
-                <option value="катування (побиття, зґвалтування, каліцтво)">катування (побиття, зґвалтування, каліцтво)</option>
-                <option value="утримання у заручниках чи полоні">утримання у заручниках чи полоні</option>
-                <option value="вбивства, поранення медичного персоналу">вбивства, поранення медичного персоналу</option>
-                <option value="вбивства, поранення духовенства, цивільного персоналу">вбивства, поранення духовенства, цивільного персоналу</option>
-                <option value="обстріли зі стрілецької зброї, артилерії чи військових повітряних засобів">обстріли зі стрілецької зброї, артилерії чи військових повітряних засобів</option>
-                <option value="використання вогнепальної зброї">використання вогнепальної зброї</option>
-                <option value="пересування та застосування військової техніки у межах міст, селищ">пересування та застосування військової техніки у межах міст, селищ</option>
-                <option value="уламки снарядів у межах населеного пункту">уламки снарядів у межах населеного пункту</option>
-                <option value="використання цивільної інфраструктури з воєнною метою під прикриттям цивільних">використання цивільної інфраструктури з воєнною метою під прикриттям цивільних</option>
-                <option value="привласнення та руйнування майна, транспорту, привласнення чи знищення пального">привласнення та руйнування майна, транспорту, привласнення чи знищення пального</option>
-                <option value="руйнування культурних пам’яток">руйнування культурних пам’яток</option>
-                <option value="пошкодження обʼєктів цивільної інфраструктури">пошкодження обʼєктів цивільної інфраструктури</option>
-                <option value="пошкодження або знищення медичного транспорту, лікарень, обладнання">пошкодження або знищення медичного транспорту, лікарень, обладнання</option>
-                <option value="пошкодження або знищення культових споруд (храмів, мечетей, синагог)">пошкодження або знищення культових споруд (храмів, мечетей, синагог) </option>
-                <option value="використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та медичних установ">використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та медичних установ</option>
-                <option value="інше">інше</option>
-            </select>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="потерпілою є дитина (неповнолітня особа)" id="Check0">
+                <label class="form-check-label" for="Check0">
+                    потерпілою є дитина (неповнолітня особа)
+                </label>
+            </div>
+            
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="вбивства, поранення цивільних" id="Check1">
+                <label class="form-check-label" for="Check1">
+                    вбивства, поранення цивільних
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="катування (побиття, зґвалтування, каліцтво)" id="Check2">
+                <label class="form-check-label" for="Check2">
+                    катування (побиття, зґвалтування, каліцтво)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="утримання у заручниках чи полоні" id="Check3">
+                <label class="form-check-label" for="Check3">
+                    утримання у заручниках чи полоні
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="вбивства, поранення медичного персоналу" id="Check4">
+                <label class="form-check-label" for="Check4">
+                    вбивства, поранення медичного персоналу
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="вбивства, поранення духовенства, цивільного персоналу" id="Check5">
+                <label class="form-check-label" for="Check5">
+                    вбивства, поранення духовенства, цивільного персоналу
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="обстріли зі стрілецької зброї, артилерії чи військових повітряних засобів" id="Check6">
+                <label class="form-check-label" for="Check6">
+                    обстріли зі стрілецької зброї, артилерії чи військових повітряних засобів
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="використання вогнепальної зброї" id="Check7">
+                <label class="form-check-label" for="Check7">
+                    використання вогнепальної зброї
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="пересування та застосування військової техніки у межах міст, селищ" id="Check8">
+                <label class="form-check-label" for="Check8">
+                    пересування та застосування військової техніки у межах міст, селищ
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="уламки снарядів у межах населеного пункту" id="Check9">
+                <label class="form-check-label" for="Check9">
+                    уламки снарядів у межах населеного пункту
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="використання цивільної інфраструктури з воєнною метою під прикриттям цивільних" id="Check10">
+                <label class="form-check-label" for="Check10">
+                    використання цивільної інфраструктури з воєнною метою під прикриттям цивільних
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="привласнення та руйнування майна, транспорту, привласнення чи знищення пального" id="Check11">
+                <label class="form-check-label" for="Check11">
+                    привласнення та руйнування майна, транспорту, привласнення чи знищення пального
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="руйнування культурних пам’яток" id="Check12">
+                <label class="form-check-label" for="Check12">
+                    руйнування культурних пам’яток
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="пошкодження обʼєктів цивільної інфраструктури" id="Check13">
+                <label class="form-check-label" for="Check13">
+                    пошкодження обʼєктів цивільної інфраструктури
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="пошкодження або знищення медичного транспорту, лікарень, обладнання" id="Check14">
+                <label class="form-check-label" for="Check14">
+                    пошкодження або знищення медичного транспорту, лікарень, обладнання
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="пошкодження або знищення культових споруд (храмів, мечетей, синагог)" id="Check15">
+                <label class="form-check-label" for="Check15">
+                    пошкодження або знищення культових споруд (храмів, мечетей, синагог)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та медичних установ" id="Check16">
+                <label class="form-check-label" for="Check16">
+                    використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та медичних установ
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="eventType" type="checkbox" value="інше" id="Check17">
+                <label class="form-check-label" for="Check17">
+                    інше
+                </label>
+            </div>
+              
+            
         </div>
+
 
         <div class="fieldset">
             <label class="form-label">Персональні дані ворога</label>
@@ -353,10 +446,10 @@
 </div>
 
 <script src="/public/js/vanillajs-datepicker.js"></script>
-<script src="/public/js/axios.min.js?v=1403"></script>
+<script src="/public/js/axios.min.js?v=1803"></script>
 <script src="https://www.google.com/recaptcha/enterprise.js?render=6Le_V7MeAAAAAKZ9kPfj_NVex4siD8oErqRuy499"></script>
-<script src="/public/js/map.js?v=1403"></script>
-<script src="/public/js/app.js?v=1403"></script>
+<script src="/public/js/map.js?v=1803"></script>
+<script src="/public/js/app.js?v=1803"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABlYJtNFxfmGQHaBfy0gWmaPmJLM8s8S8&language=uk&libraries=places&callback=initMap"> </script>
 
 </body>
