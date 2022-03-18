@@ -13,10 +13,12 @@ export default {
     },
 
     plugins: [
-        resolve(),
+        json(),
+        resolve({
+            browser: true
+        }),
         commonjs(),
-        terser(),
-        json()
+        terser()
     ],
 
     output: {
