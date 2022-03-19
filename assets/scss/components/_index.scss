@@ -135,6 +135,10 @@ form {
   padding-top: 6px;
   padding-bottom: 64px;
   background-color: #deeef1;
+  background: linear-gradient(270deg,#e7efdf,#e7eef3,#e7efdf,#e7eef3);
+  background-size: 400% 100%;
+  -webkit-animation: gradient-animation 8s ease infinite alternate;
+  animation: gradient-animation 8s ease infinite alternate;
 
 
   @media (min-width: 768px) {
@@ -333,7 +337,7 @@ form {
     flex: 0 0 100%;
 
     @media (min-width: 768px) {
-      flex: 0 0 calc(50% - 0.75rem);
+      flex: 0 0 calc(50% - 12px);
     }
   }
   label + label {
@@ -343,7 +347,7 @@ form {
     @media (min-width: 768px) {
       order: initial;
       margin-top: 0;
-      margin-left: 1.5rem;
+      margin-left: 24px;
     }
   }
 
@@ -352,37 +356,37 @@ form {
   }
 
   .eventStart {
-    flex: calc(100% - 110px - 1rem);
+    flex: calc(100% - 110px - 16px);
 
     @media (min-width: 768px) {
-      flex: calc(50% - 110px - 2.25rem);
+      flex: calc(50% - 110px - 36px);
     }
 
   }
   .eventEnd {
-    flex: calc(100% - 110px - 1rem);
+    flex: calc(100% - 110px - 16px);
     order: 2;
 
     @media (min-width: 768px) {
-      flex: calc(50% - 110px - 2.25rem);
-      margin-left: 1.5rem;
+      flex: calc(50% - 110px - 36px);
+      margin-left: 24px;
     }
   }
   .timeStart {
     flex: 110px;
-    margin-left: 1rem;
+    margin-left: 16px;
 
     @media (min-width: 768px) {
-      margin-left: 1.5rem;
+      margin-left: 24px;
     }
   }
   .timeEnd {
     flex: 110px;
     order: 2;
-    margin-left: 1rem;
+    margin-left: 16px;
 
     @media (min-width: 768px) {
-      margin-left: 1.5rem;
+      margin-left: 24px;
     }
   }
 }
@@ -431,4 +435,34 @@ input[type="file"] {
 
 .was-validated #eventPeriod .form-control:valid {
   padding-right: 0
+}
+
+
+
+@-webkit-keyframes gradient-animation {
+  0% {
+    background-position:0 50%
+  }
+
+  50% {
+    background-position:100% 50%
+  }
+
+  to {
+    background-position:0 50%
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position:0 50%
+  }
+
+  50% {
+    background-position:100% 50%
+  }
+
+  to {
+    background-position:0 50%
+  }
 }

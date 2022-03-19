@@ -1,5 +1,6 @@
 import { Datepicker, DateRangePicker } from 'vanillajs-datepicker';
-const axios = require("axios");
+import axios from "axios";
+//const axios = require("axios");
 
 function generateSessionId() {
     return Date.now() + Math.random().toString(36).substring(2, 9);

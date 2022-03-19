@@ -56,3 +56,27 @@ ul {
     }
   }
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.col-md-9 {
+  flex: 0 0 100%;
+  @media (min-width: 768px) {
+    flex: 0 0 calc(75% - 12px);
+  }
+}
+.col-md-6 {
+  flex: 0 0 100%;
+  @media (min-width: 768px) {
+    flex: 0 0 calc(50% - 12px);
+  }
+}
+.col-md-3 {
+  flex: 0 0 100%;
+  @media (min-width: 768px) {
+    flex: 0 0 calc(25% - 12px);
+  }
+}

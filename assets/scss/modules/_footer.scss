@@ -1,13 +1,13 @@
 .footer {
   display: block;
   padding-top: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 32px;
   color: #FFF;
   background-color: #000;
 
   @media (min-width: 768px) {
     padding-top: 64px;
-    padding-bottom: 32px;
+    padding-bottom: 40px;
   }
 
   &__logos {
@@ -63,7 +63,7 @@
       text-decoration: underline;
 
       &:hover {
-        color: #99EECC;
+        color: #e6ff03;
       }
 
       @media (min-width: 992px) {
@@ -106,7 +106,7 @@
       text-decoration: underline;
 
       &:hover {
-        color: #99EECC;
+        color: #e6ff03;
       }
 
       @media (min-width: 992px) {

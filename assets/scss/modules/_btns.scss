@@ -5,6 +5,7 @@
   font-size: 14px;
   font-weight: 400;
   font-family: 'eUkraine',-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  text-decoration: none;
   border: 2px solid;
   transition: background .3s ease-out;
 
@@ -34,6 +35,7 @@
     }
   }
   &_cta {
+    color: #000;
     border: 0;
     background-color: #e6ff03;
 
@@ -68,8 +70,10 @@
     border: 0;
 
     &:hover {
+      color: #000;
       border-color: #000;
-      background: linear-gradient(68.94deg, #C3AAB2 -4.77%, #99EECC 46.72%, #80C0C8 90.23%, #4B8BFA 134.46%);
+      background-color: #e6ff03;
+      //background: linear-gradient(68.94deg, #C3AAB2 -4.77%, #99EECC 46.72%, #80C0C8 90.23%, #4B8BFA 134.46%);
     }
   }
 
@@ -89,8 +93,21 @@
     border: 0;
 
     &:hover {
+      color: #000;
       border-color: #000;
-      background: linear-gradient(68.94deg, #C3AAB2 -4.77%, #99EECC 46.72%, #80C0C8 90.23%, #4B8BFA 134.46%);
+      background-color: #99EECC;
+      //background: linear-gradient(68.94deg, #C3AAB2 -4.77%, #99EECC 46.72%, #80C0C8 90.23%, #4B8BFA 134.46%);
     }
+  }
+}
+
+#customFileInput {
+  padding: 8px 12px;
+  border-radius: 3px;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #99EECC;
   }
 }
