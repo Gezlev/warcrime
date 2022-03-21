@@ -1,27 +1,42 @@
 import { Datepicker, DateRangePicker } from 'vanillajs-datepicker';
+import intlTelInput from 'intl-tel-input';
 import axios from "axios";
-//const axios = require("axios");
 
 function generateSessionId() {
     return Date.now() + Math.random().toString(36).substring(2, 9);
 }
 document.getElementById("sessionId").value = generateSessionId();
 
-
+Datepicker.locales.en = {
+    days: ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"],
+    daysShort: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+    daysMin: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+    months: ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"],
+    monthsShort: ["Січ", "Лют", "Бер", "Кві", "Тра", "Чер", "Лип", "Сер", "Вер", "Жов", "Лис", "Гру"],
+    today: "Сьогодні",
+    clear: "Очістити",
+    titleFormat: "MM y",
+    format: "dd.mm.yyyy",
+    weekStart: 1
+}
 const birthDate = new Datepicker(document.querySelector('input[name="birthday"]'), {
     defaultViewDate: new Date('2004-01-01'),
     format: 'dd.mm.yyyy',
     weekStart: 1,
-    autohide: true
+    autohide: true,
+    maxDate: new Date() - 18 * 365 * 24 * 60 * 60 * 1000,
+    prevArrow: '<div class="datepicker-prev"></div>',
+    nextArrow: '<div class="datepicker-next"></div>'
 });
 
-const eventPeriod = document.querySelector('#eventPeriod');
-let rangepicker = new DateRangePicker(eventPeriod, {
+const rangepicker = new DateRangePicker(document.querySelector('#eventPeriod'), {
     format: 'dd.mm.yyyy',
     weekStart: 1,
-    autohide: true
+    autohide: true,
+    minDate: new Date('2022-02-24'),
+    prevArrow: '<div class="datepicker-prev"></div>',
+    nextArrow: '<div class="datepicker-next"></div>'
 });
-
 
 (function() {
     'use strict' // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -233,40 +248,32 @@ var uploadFiles = async function(files, fileUploadUrl, scriptURL, json) {
     }
 };
 
+const phone = document.querySelector('#phone');
+const tel = document.querySelector('#phone2');
+const errorMsg = tel.parentNode.querySelector(".invalid-feedback");
+const iti = intlTelInput(tel, {
+    separateDialCode: true,
+    utilsScript: "/public/js/intltel-utils.js",
+    preferredCountries: ['ua','by','ru']
+});
 
-let keyCode;
-function mask(event) {
-    event.keyCode && (keyCode = event.keyCode);
-    var pos = this.selectionStart;
-    if (pos < 3) event.preventDefault();
-    var matrix = "+38 ___ ___ __ __",
-        i = 0,
-        def = matrix.replace(/\D/g, ""),
-        val = this.value.replace(/\D/g, ""),
-        new_value = matrix.replace(/[_\d]/g, function(a) {
-            return i < val.length ? val.charAt(i++) || def.charAt(i) : a
-        });
-    i = new_value.indexOf("_");
-    if (i != -1) {
-        i < 5 && (i = 3);
-        new_value = new_value.slice(0, i)
+const validateTel = () => {
+    if (tel.value.trim()) {
+        if (iti.isValidNumber() && tel.value.length > 0) {
+            tel.className = 'form-control is-valid';
+            errorMsg.style.display = 'none';
+            tel.removeAttribute("aria-invalid");
+            phone.value = tel.value;
+        } else {
+            tel.className = 'form-control is-invalid';
+            errorMsg.style.display = 'block';
+            tel.setAttribute("aria-invalid", "true");
+            phone.value = '';
+        }
     }
-    var reg = matrix.substr(0, this.value.length).replace(/_+/g,
-        function(a) {
-            return "\\d{1," + a.length + "}"
-        }).replace(/[+()]/g, "\\$&");
-    reg = new RegExp("^" + reg + "$");
-    if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
-    if (event.type == "blur" && this.value.length < 5)  this.value = "";
-}
+};
 
-function transformDate(data) {
-    let a = data.split(".");
-    return a.reverse().join("-");
-}
-
-const tel = document.querySelector('#phone');
-tel.addEventListener("input", mask, false);
-tel.addEventListener("focus", mask, false);
-tel.addEventListener("blur", mask, false);
-tel.addEventListener("keydown", mask, false);
+tel.addEventListener("input", validateTel, false);
+tel.addEventListener("focus", validateTel, false);
+tel.addEventListener("blur", validateTel, false);
+tel.addEventListener("keydown", validateTel, false);

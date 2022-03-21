@@ -21,12 +21,13 @@
     min-height: calc(100vh - 90px - 353px);
   }
   @media (min-width: 1280px) {
-    min-height: calc(100vh - 90px - 386px);
+    min-height: calc(100vh - 90px - 394px);
   }
 
   &__content {
     padding-top: 64px;
     padding-bottom: 64px;
+    box-sizing: border-box;
   }
   &__title {
     padding-left: 20px;

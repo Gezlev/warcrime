@@ -466,3 +466,99 @@ input[type="file"] {
     background-position:0 50%
   }
 }
+.datepicker-cell.range-start,
+.datepicker-cell.range-end,
+.datepicker-picker span {
+  border-radius: 0;
+}
+.datepicker-cell.focused:not(.selected) {
+  background-color: #FFF;
+}
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today).focused,
+.datepicker-cell.range,
+.datepicker-cell:not(.disabled):hover {
+  background-color: #E7EEF3;
+}
+.datepicker-cell.range-start.selected:hover,
+.datepicker-cell.range-end.selected:hover,
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today).focused,
+.datepicker-cell.range-end:not(.selected),
+.datepicker-cell.range-start:not(.selected) {
+  color: #FFF;
+  background-color: #000000;
+}
+
+.datepicker-prev,
+.datepicker-next {
+  height: 100%;
+  width: 15px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 15px auto;
+}
+
+.datepicker-prev {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNyAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTcgN0wyIDdNMiA3TDguNDE2MTIgMTNNMiA3TDguNDE2MTIgMSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+);
+}
+.datepicker-next {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNyAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLTUuMjQ1MzdlLTA3IDdMMTUgN00xNSA3TDguNTgzODggMTNNMTUgN0w4LjU4Mzg4IDEiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==);
+}
+.datepicker-header .datepicker-controls {
+  padding: 12px 4px 8px;
+}
+.datepicker-controls .button {
+  font-size: 13px;
+  font-weight: 400;
+}
+.datepicker-header .datepicker-controls .button {
+  border-radius: 0;
+  &:hover {
+    background-color: #E7EEF3;
+  }
+}
+
+.datepicker-cell, .datepicker-view .week,
+.datepicker-view .dow {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.iti__country-list {
+  min-width: calc(100vw - 40px);
+  @media (min-width: 576px) {
+    min-width: initial;
+  }
+}
+.iti__divider,
+.iti__country {
+  margin: 0;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 300;
+
+  &:before {
+    display: none;
+  }
+}
+
+.iti__selected-flag {
+  outline: none;
+}
+.iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+  background-color: #FFF;
+}
+.iti__country.iti__highlight {
+  background-color: #E7EEF3;
+}
+.iti--separate-dial-code .iti__selected-flag {
+  background-color: #FFF;
+}
+
+#phone {
+  display: block;
+  height: 0;
+  border: 0;
+  box-shadow: none;
+  opacity: 0;
+  pointer-events: none;
+}

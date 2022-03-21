@@ -8,7 +8,7 @@ export default {
     input: './assets/js/app.js',
 
     watch: {
-        include: './assets/js/*/**',
+        include: './assets/js/app.js',
         clearScreen: false
     },
 
@@ -24,6 +24,6 @@ export default {
     output: {
         file: './public/js/app.js',
         format: 'iife',
-        sourcemap: true
+        sourcemap: false
     }
 };
