@@ -1,0 +1,187 @@
+﻿const googleMap = (function () {
+    let mapContainerId;
+    let map;
+    let marker_size = 45;
+    let marker, marker_first = 0;
+    let inputLocation;
+    let formName = {}
+    let geocoder;
+    let needAddressDetailsChange = false;
+    let icon =  L.icon({
+        iconUrl: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
+        iconSize: [marker_size, marker_size],
+        iconAnchor: [22, 44],
+    });
+
+    function setupFormAddressFields(name) {
+        formName = name;
+    }
+
+    function mapObserver() {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting && marker) {
+                    getAddressByLatLng(false);
+                }
+            });
+
+        }, { threshold: 0 })
+
+        observer.observe(document.getElementById(mapContainerId));
+    }
+
+    function showMap(targetDivId) {
+        mapContainerId = targetDivId;
+
+        map = L.map(targetDivId).setView({lon: 31.6843, lat: 49.1261}, 6);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+        }).addTo(map);
+        L.control.scale({imperial: true, metric: true}).addTo(map);
+    
+        map.on("click", function(pos) {
+            addMarker(pos.latlng);
+            setAddress();
+            needAddressDetailsChange = true;
+        });
+        geocoder  = new google.maps.Geocoder;
+        mapObserver();      
+
+
+
+    }
+
+    function setAddress() {
+        if (inputLocation.getAttribute("latlng") == "true") {inputLocation.value = marker.getLatLng().lat + " " + marker.getLatLng().lng}
+        if (typeof document.forms[formName]['lat'] !== 'undefined') {document.forms[formName]['lat'].value = marker.getLatLng().lat;}
+        if (typeof document.forms[formName]['lng'] !== 'undefined') {document.forms[formName]['lng'].value = marker.getLatLng().lng;}
+        needAddressDetailsChange  = true;
+
+    }
+    function setAddressFields(result) {
+        result.address_components.forEach(element => {
+            if (typeof document.forms[formName][element.types[0]] !== 'undefined') {document.forms[formName][element.types[0]].value = element.long_name }
+        });
+        needAddressDetailsChange = false;
+    }
+
+    function showMessage(type, text) {
+        alert(type + ":" + text);
+    }
+
+    function getAddressByQuery(query) {
+        geocoder.geocode({'address': query}, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                let c = new L.latLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+                addMarker(c);
+                map.flyTo(c);
+            }
+        });
+    }
+
+    function getAddressByLatLng(changeInput) {
+        geocoder.geocode({'location': marker.getLatLng()}, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                setAddressFields(results[0]);
+                setAddress();
+                if (changeInput) {
+                    inputLocation.value = results[0].formatted_address;
+                }
+            }
+        });
+    }
+
+    function addMarker(location) {
+        if (marker_first !=0) {
+            marker.setLatLng(location);
+            return;
+          }
+        
+          marker = L.marker(location, {
+            draggable:true,
+            title:"Ти можеш мене рухати!",
+            icon: icon
+          }).addTo(map);;
+          
+          marker.addEventListener("dragend", setAddress)
+
+        map.flyTo(location);
+
+        marker_first ++;
+
+    }
+
+
+    function findLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                addMarker(pos);
+                setAddress();
+                getAddressByLatLng(true);
+
+                map.flyTo(pos, 14);
+            }, function(error) {
+                showMessage("error", "Немає дозвілу на визначення місця розташування" + error.code);
+            });
+        }
+    }
+
+
+
+    function initSearch(inputId, findLocationID) {
+        inputLocation = document.getElementById(inputId);
+        inputLocation.addEventListener("keydown", function(e) {
+            if (e.key == 'Enter') {
+                e.preventDefault();
+                getAddressByQuery(inputLocation.value);
+            }
+        });
+        inputLocation.addEventListener("blur", function(){
+            getAddressByQuery(inputLocation.value);
+        })
+        let findLocationButton = document.getElementById(findLocationID);
+
+
+        google.maps.event.addDomListener(findLocationButton, "click", findLocation);
+
+        let autocomplete = new google.maps.places.Autocomplete(inputLocation, {
+            componentRestrictions: {country: 'ua'}
+        });
+     //   autocomplete.bindTo('bounds', map);
+
+        autocomplete.addListener('place_changed', function() {
+            inputLocation.setAttribute("latlng", false);
+            let place = autocomplete.getPlace();
+            if (!place.geometry) {
+                console.log("Autocomplete's returned place contains no geometry");
+                return;
+            }
+            let c = new L.latLng(place.geometry.location.lat(), place.geometry.location.lng());
+            addMarker(c);
+            map.flyTo(c, 14);
+            setAddress();
+            setAddressFields(place);
+        });
+    }
+
+
+
+    return {
+        showMap: showMap,
+        initSearch: initSearch,
+        setupFormAddressFields: setupFormAddressFields,
+    }
+})();
+
+
+function initMap() {
+    googleMap.showMap('map');
+    googleMap.setupFormAddressFields('google-sheet');
+    googleMap.initSearch('location', 'button-location');
+}

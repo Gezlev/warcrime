@@ -31,7 +31,8 @@ const openstreetMap = (function(){
             setAddress();
             needAddressDetailsChange = true;
         });
-        
+        geocoder  = new google.maps.Geocoder;
+        mapObserver();        
     
     }
 
