@@ -1,1 +1,292 @@
-function generateSessionId(){return Date.now()+Math.random().toString(36).substring(2,9)}document.getElementById("sessionId").value=generateSessionId();const birthDate=new Datepicker(document.querySelector('input[name="birthday"]'),{defaultViewDate:new Date("2004-01-01"),format:"dd.mm.yyyy",weekStart:1,autohide:!0}),eventPeriod=document.querySelector("#eventPeriod");let rangepicker=new DateRangePicker(eventPeriod,{format:"dd.mm.yyyy",weekStart:1,autohide:!0}),allowed_size_mb=(!function(){"use strict";var e=document.querySelectorAll(".needs-validation");Array.prototype.slice.call(e).forEach(function(o){o.addEventListener("keydown",function(e){"Enter"==e.key&&e.preventDefault()}),o.addEventListener("submit",function(e){if(e.preventDefault(),e.stopPropagation(),o.checkValidity()){document.querySelector("button[type='submit']").disabled=!0,document.getElementById("sessionId").value=generateSessionId();const l="https://warcrimes.gov.ua/api",o=document.forms["google-sheet"];let e=new FormData(o),a=(e.append("copy",!1),e.set("birthday",transformDate(o.birthday.value)),o.eventStart.value&&e.set("eventStart",transformDate(o.eventStart.value)+" "+(o.timeStart.value||"00:00")),o.eventEnd.value&&e.set("eventEnd",transformDate(o.eventEnd.value)+" "+(o.timeEnd.value||"23:59")),e.delete("timeStart"),e.delete("timeEnd"),{}),t=(e.forEach((e,t)=>a[t]=e),JSON.stringify(a)),n=document.getElementById("formFile"),r;axios({method:"post",url:l,data:t,responseType:"json"}).then(e=>{let t="";o.surname.value&&(t+="Name"),o.tel.value&&(t+="Tel"),""!=o.email.value&&(t+="Email"),dataLayer.push({event:"analytics",analytics:{sessionId:o.sessionId.value,filesCount:n.files.length,contactFields:t,administrative_area_level_1:o.administrative_area_level_1.value}}),e.data.url?r=e.data.url:console.log("fileUploadUrl not received")}).then(()=>{uploadFiles(n.files,r,l,t.replace('"copy":"false"','"copy":"true"')).then(()=>{document.getElementById("modal").style.display="block"})}).catch(e=>{console.error("Error!",e.message)})}o.classList.add("was-validated");let t=document.querySelector(".was-validated :invalid");t&&t.scrollIntoView({behavior:"smooth"})},!1)})}(),navigator.geolocation||(document.getElementById("button-location").style.display=none),100),inputs=document.getElementById("formFile");inputs.addEventListener("change",function(l){document.getElementById("fileName").innerHTML="";for(let r=0;r<l.target.files.length;r++){var o=l.target.files[r];let e=document.createElement("div"),t='<div class="progress"><div class="progress-bar" role="progressbar" style="width: 0" filename="'+o.name+'">0%</div></div>',a=document.createElement("div"),n=(a.innerHTML=t.trim(),t=a.firstChild,document.createElement("span"));n.className="badge bg-warning",n.setAttribute("fileName",o.name),n.innerText="x",n.addEventListener("click",function(t){for(let e=0;e<l.target.files.length;e++)if(l.target.files[e].name==t.target.getAttribute("fileName")){removeFileFromFileList(e,l.target);break}t.target.parentNode.remove()}),e.innerText=o.name,o.size>1024*allowed_size_mb*1024&&(e.classList.add("text-danger"),e.innerText+="Файл може дового завантажуватися через великий розмір"),e.appendChild(n),e.appendChild(t),document.getElementById("fileName").appendChild(e)}}),grecaptcha.enterprise.ready(function(){grecaptcha.enterprise.execute("6Le_V7MeAAAAAKZ9kPfj_NVex4siD8oErqRuy499",{action:"homepage"}).then(function(e){document.querySelector("input[name='googleReCaptcha']").value=e})});const removeFileFromFileList=function(t,e){const a=new DataTransfer;var n=e["files"];for(let e=0;e<n.length;e++){var r=n[e];t!==e&&a.items.add(r)}e.files=a.files};var fileUploadProgress=function(e,t){let a=document.querySelector("div.progress-bar[filename='"+t+"']");t=Math.round(100*e.loaded/e.total);a.style.width=t+"%",a.innerText=t+"%"},uploadFiles=async function(t,a,n,r){let l=0;for(const o of t){if(!a)return;let e=new FormData;e.append("image",o),await axios.put(a,o,{headers:{"Content-Type":o.type},onUploadProgress:function(e,t=o.name){fileUploadProgress(e,t)}}).then(()=>{var e=o.type?o.type.split("/")[0]:"unknow";dataLayer.push({event:"fileUpload",file:{sessionId:document.forms["google-sheet"].sessionId.value,type:e}})}),l<t.length-1&&await axios({method:"post",url:n,data:r,responseType:"json"}).then(e=>{e.data.url&&(a=e.data.url)}).catch(e=>{console.log(e)}),l++}};let keyCode;function mask(e){e.keyCode&&(keyCode=e.keyCode);this.selectionStart<3&&e.preventDefault();var t="+38 ___ ___ __ __",a=0,n=t.replace(/\D/g,""),r=this.value.replace(/\D/g,""),l=t.replace(/[_\d]/g,function(e){return a<r.length?r.charAt(a++)||n.charAt(a):e}),t=(-1!=(a=l.indexOf("_"))&&(a<5&&(a=3),l=l.slice(0,a)),t.substr(0,this.value.length).replace(/_+/g,function(e){return"\\d{1,"+e.length+"}"}).replace(/[+()]/g,"\\$&"));(!(t=new RegExp("^"+t+"$")).test(this.value)||this.value.length<5||47<keyCode&&keyCode<58)&&(this.value=l),"blur"==e.type&&this.value.length<5&&(this.value="")}function transformDate(e){let t=e.split(".");return t.reverse().join("-")}const tel=document.querySelector("#phone");tel.addEventListener("input",mask,!1),tel.addEventListener("focus",mask,!1),tel.addEventListener("blur",mask,!1),tel.addEventListener("keydown",mask,!1);
+function generateSessionId() {
+    return Date.now() + Math.random().toString(36).substring(2, 9);
+}
+document.getElementById("sessionId").value = generateSessionId();
+
+
+const birthDate = new Datepicker(document.querySelector('input[name="birthday"]'), {
+    defaultViewDate: new Date('2004-01-01'),
+    format: 'dd.mm.yyyy',
+    weekStart: 1,
+    autohide: true
+});
+
+const eventPeriod = document.querySelector('#eventPeriod');
+let rangepicker = new DateRangePicker(eventPeriod, {
+    format: 'dd.mm.yyyy',
+    weekStart: 1,
+    autohide: true
+});
+
+
+(function() {
+    'use strict' // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation') // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function(form) {
+            form.addEventListener("keydown", function(e) {
+                if (e.key == "Enter") {
+                    e.preventDefault();
+                }
+            });
+            form.addEventListener('submit', function(event) {
+                event.preventDefault()
+                event.stopPropagation()
+                if (!form.checkValidity()) {
+                } else {
+                    document.querySelector("button[type='submit']").disabled = true;
+                    document.getElementById("sessionId").value = generateSessionId();
+                    const scriptURL = '/api' ;
+                    const form = document.forms['google-sheet'];
+                    let bodyFormData = new FormData(form);
+                    bodyFormData.append("copy", false);
+                    bodyFormData.set("birthday", transformDate(form["birthday"].value));
+                    if (form["eventStart"].value) {
+                        bodyFormData.set("eventStart", transformDate(form["eventStart"].value) + " " + (form["timeStart"].value ? form["timeStart"].value : "00:00"));
+                    }
+                    if (form["eventEnd"].value) {
+                        bodyFormData.set("eventEnd", transformDate(form["eventEnd"].value) + " " + (form["timeEnd"].value ? form["timeEnd"].value : "23:59"));
+                    }
+                    bodyFormData.delete("timeStart");
+                    bodyFormData.delete("timeEnd");
+                    
+                    
+                    let object = {};
+                    bodyFormData.forEach((value, key) => object[key] = value);
+                    object["eventType"] = bodyFormData.getAll('eventType');
+                    let files = document.getElementById('formFile').files;
+                    let fileUploadUrl;
+
+                    if (files.length > 0 && typeof files.getHash()[files[0].name]["SHA-1"] !== 'undefined') {
+                        object["sha1"] = files.getHash()[files[0].name]["SHA-1"];
+                    }
+                                                        
+                    let json = JSON.stringify(object);
+
+                    axios({
+                        method: "post",
+                        url: scriptURL,
+                        data: json,
+                        responseType: 'json'
+                    })
+                        .then(response => {
+                            let contactFields = "";
+                            if (form['surname'].value) {
+                                contactFields += 'Name'
+                            }
+                            if (form['tel'].value) {
+                                contactFields += 'Tel'
+                            }
+                            if (form['email'].value != "") {
+                                contactFields += 'Email'
+                            }
+                            dataLayer.push({
+                                event: 'analytics',
+                                analytics: {
+                                    sessionId: form['sessionId'].value,
+                                    filesCount: files.length,
+                                    contactFields: contactFields,
+                                    administrative_area_level_1: form['administrative_area_level_1'].value
+                                }
+                            });
+
+                            if (response.data.url) {
+                                fileUploadUrl = response.data.url;
+                            } else {
+                                console.log("fileUploadUrl not received");
+                            }
+                        })
+                        .then(() => {
+                            uploadFiles(files, fileUploadUrl, scriptURL, object)
+                                .then(() => {
+                                    document.getElementById("modal").style.display = "block";
+                                });
+                        })
+                        .catch(error => {
+                            console.error('Error!', error.message);
+                        });
+                }
+
+                form.classList.add('was-validated');
+                let errorField = document.querySelector(".was-validated :invalid");
+                if (errorField) {
+                    errorField.scrollIntoView({
+                        behavior: "smooth"
+                    })
+                }
+            }, false)
+        })
+})();
+
+if (!navigator.geolocation) {
+    document.getElementById("button-location").style.display = none;
+}
+
+
+let allowed_size_mb = 100;
+let inputs = document.getElementById('formFile');
+inputs.addEventListener('change', function(e) {
+    document.getElementById("fileName").innerHTML = "";
+    for (let i = 0; i < e.target.files.length; i++) {
+        let file = e.target.files[i];
+        let div = document.createElement("div");
+        let divProgressBar = '<div class="progress"><div class="progress-bar" role="progressbar" style="width: 0" filename="' + file.name + '">0%</div></div>';
+        let template = document.createElement("div");
+        template.innerHTML = divProgressBar.trim();
+        divProgressBar = template.firstChild;
+        let span = document.createElement("span")
+        span.className = "badge bg-warning";
+        span.setAttribute("fileName", file.name);
+        span.innerText = "x";
+        span.addEventListener("click", function(el) {
+            for (let j = 0; j < e.target.files.length; j++) {
+                if (e.target.files[j].name == el.target.getAttribute("fileName")) {
+                    removeFileFromFileList(j, e.target);
+                    break;
+                }
+            }
+            el.target.parentNode.remove();
+        });
+        div.innerText = file.name;
+        if (file.size > allowed_size_mb * 1024 * 1024) {
+            div.classList.add("text-danger");
+            div.innerText += 'Файл може дового завантажуватися через великий розмір';
+        }
+        div.appendChild(span);
+        div.appendChild(divProgressBar);
+        document.getElementById("fileName").appendChild(div);
+    }
+    if (typeof calculateHash == 'function') calculateHash(e.target.files);
+});
+
+
+grecaptcha.enterprise.ready(function() {
+    grecaptcha.enterprise.execute('6Le_V7MeAAAAAKZ9kPfj_NVex4siD8oErqRuy499', {
+        action: 'homepage'
+    }).then(function(token) {
+        document.querySelector("input[name='googleReCaptcha']").value = token;
+    });
+});
+
+
+const removeFileFromFileList = function(index, input) {
+    const dt = new DataTransfer()
+    const {files} = input;
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i]
+        if (index !== i)
+            dt.items.add(file) // here you exclude the file. thus removing it.
+    }
+
+    input.files = dt.files // Assign the updates list
+}
+
+
+var fileUploadProgress = function(progressEvent, filename) {
+    let progressBar = document.querySelector("div.progress-bar[filename='" + filename + "']");
+    progressBar.classList.add('bg-success');
+    let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+    progressBar.style.width = percentCompleted + "%";
+    progressBar.innerText = percentCompleted + "%";
+
+}
+
+var uploadFiles = async function(files, fileUploadUrl, scriptURL, object) {
+    let i = 0;
+    object.copy = true;
+    let headers = {}
+    let json;
+
+
+    for (const file of files) {
+        if (!fileUploadUrl)
+            return;
+
+            if (object?.sha1) {
+                headers["x-amz-meta-sha1"] =  object.sha1;
+            }
+        
+            await axios.put(fileUploadUrl, file, {
+            headers: {
+                'Content-Type': file.type,
+                ...headers
+            },
+            onUploadProgress: function(f, filename=file.name) {
+                fileUploadProgress(f, filename);
+            }
+        }).then(() => {
+            let type = file.type ? file.type.split("/")[0] : 'unknow';
+            dataLayer.push({
+                event: 'fileUpload',
+                file: {
+                    sessionId: document.forms["google-sheet"]["sessionId"].value,
+                    type: type,
+                }
+            });
+        });
+
+        if (i < files.length - 1) {
+
+            if (typeof files.getHash()[files[i+1].name]["SHA-1"] !== 'undefined') {
+                object.sha1 = files.getHash()[files[i+1].name]["SHA-1"];
+            }
+
+            json = JSON.stringify(object);            
+            await axios({
+                method: "post",
+                url: scriptURL,
+                data: json,
+                responseType: 'json'
+            }).then(response => {
+                if (response.data.url) {
+                    fileUploadUrl = response.data.url;
+                }
+                else {
+                    return;
+                }
+            }).catch(error => {
+                console.log(error);
+                return;
+            })
+        }
+        i++;
+    }
+};
+
+
+let keyCode;
+function mask(event) {
+    event.keyCode && (keyCode = event.keyCode);
+    var pos = this.selectionStart;
+    if (pos < 3) event.preventDefault();
+    var matrix = "+38 ___ ___ __ __",
+        i = 0,
+        def = matrix.replace(/\D/g, ""),
+        val = this.value.replace(/\D/g, ""),
+        new_value = matrix.replace(/[_\d]/g, function(a) {
+            return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+        });
+    i = new_value.indexOf("_");
+    if (i != -1) {
+        i < 5 && (i = 3);
+        new_value = new_value.slice(0, i)
+    }
+    var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+        function(a) {
+            return "\\d{1," + a.length + "}"
+        }).replace(/[+()]/g, "\\$&");
+    reg = new RegExp("^" + reg + "$");
+    if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+    if (event.type == "blur" && this.value.length < 5)  this.value = "";
+}
+
+function transformDate(data) {
+    let a = data.split(".");
+    return a.reverse().join("-");
+}
+
+const tel = document.querySelector('#phone');
+tel.addEventListener("input", mask, false);
+tel.addEventListener("focus", mask, false);
+tel.addEventListener("blur", mask, false);
+tel.addEventListener("keydown", mask, false);

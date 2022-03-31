@@ -61,7 +61,7 @@
 
     }
     function setAddressFields(result) {
-        result.address_components.forEach(element => {
+        result.forEach(element => {
             if (typeof document.forms[formName][element.types[0]] !== 'undefined') {document.forms[formName][element.types[0]].value = element.long_name }
         });
         needAddressDetailsChange = false;
@@ -84,7 +84,7 @@
     function getAddressByLatLng(changeInput) {
         geocoder.geocode({'location': marker.getLatLng()}, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
-                setAddressFields(results[0]);
+                setAddressFields(results[0].address_components);
                 setAddress();
                 if (changeInput) {
                     inputLocation.value = results[0].formatted_address;
@@ -92,6 +92,27 @@
             }
         });
     }
+
+    function getAddressByLatLngTomTom(changeInput) {
+        axios.get("https://api.tomtom.com/search/2/reverseGeocode/" + marker.getLatLng().lat + "," + marker.getLatLng().lng + ".json?language=uk-UA&key=9yfKHHdqJTvbPMayQXNEZ0zWRg9ISG2K").then(function(result) {
+            if (result.data?.addresses[0]?.address) {
+                let a = result.data?.addresses[0]?.address;
+                let b = {
+                    "country": undefined || a.country, 
+                    "administrative_area_level_2":  undefined ||  a.countrySecondarySubdivision, 
+                    "administrative_area_level_1":  undefined || a.countrySubdivision,
+                    "locality":  undefined || a.municipalitySubdivision,
+                    "route":  undefined || a.streetName, 
+                    "street_number":  undefined || a.streetNumber,
+                } ;
+            }
+
+        });
+
+
+
+    }
+
 
     function addMarker(location) {
         if (marker_first !=0) {
@@ -123,7 +144,8 @@
                 };
                 addMarker(pos);
                 setAddress();
-                getAddressByLatLng(true);
+                getAddressByLatLng(true)
+
 
                 map.flyTo(pos, 14);
             }, function(error) {
@@ -166,7 +188,7 @@
             addMarker(c);
             map.flyTo(c, 14);
             setAddress();
-            setAddressFields(place);
+            setAddressFields(place.address_components);
         });
     }
 

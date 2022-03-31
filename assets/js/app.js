@@ -1,6 +1,3 @@
-//import { Datepicker, DateRangePicker } from 'vanillajs-datepicker';
-//import axios from "axios";
-
 function generateSessionId() {
     return Date.now() + Math.random().toString(36).substring(2, 9);
 }
@@ -39,7 +36,7 @@ let rangepicker = new DateRangePicker(eventPeriod, {
                 } else {
                     document.querySelector("button[type='submit']").disabled = true;
                     document.getElementById("sessionId").value = generateSessionId();
-                    const scriptURL = 'https://warcrimes.gov.ua/api';
+                    const scriptURL = 'https://pe0gz3li04.execute-api.eu-central-1.amazonaws.com/api-dev' ; //'/api';
                     const form = document.forms['google-sheet'];
                     let bodyFormData = new FormData(form);
                     bodyFormData.append("copy", false);

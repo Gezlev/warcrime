@@ -7,8 +7,8 @@
     <link rel="preload" href="/public/fonts/e-Ukraine-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/public/fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
-    <link rel="preload" href="/public/style.css?v=1803" as="style">
-    <link rel="stylesheet" href="/public/style.css?v=1803">
+    <link rel="preload" href="/public/style.css?v=2103" as="style">
+    <link rel="stylesheet" href="/public/style.css?v=2103">
 
     <title>Кримінальна відповідальність за #RussianWarCrimes!</title>
     <meta name="description" content="Якщо ви стали свідком воєнного злочину РФ, фіксуйте та надсилайте докази"/>
@@ -22,13 +22,13 @@
 
     <link rel="alternate" href="https://warcrimes.gov.ua" hreflang="x-default"/>
     <link rel="canonical" href="https://warcrimes.gov.ua"/>
-    <link rel="apple-touch-icon" sizes="120x120" href="https://warcrimes.gov.ua/public/fav/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="https://warcrimes.gov.ua/public/fav/android-chrome-96x96.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="https://warcrimes.gov.ua/public/fav/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://warcrimes.gov.ua/public/fav/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://warcrimes.gov.ua/public/fav/favicon-16x16.png">
-    <link rel="manifest" href="https://warcrimes.gov.ua/public/fav/site.webmanifest">
-    <link rel="icon" href="https://warcrimes.gov.ua/public/fav/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/public/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/public/fav/android-chrome-96x96.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/public/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/fav/favicon-16x16.png">
+    <link rel="manifest" href="/public/fav/site.webmanifest">
+    <link rel="icon" href="/public/fav/favicon.ico" type="image/x-icon"/>
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="theme-color" content="#000000">
 
@@ -383,7 +383,7 @@
         </div>
 
         <div class="fieldset">
-            <input class="form-control" type="file" multiple="" id="formFile" name="files" accept="image/png, image/jpeg, image/webp, image/jpg, video/mp4, application/x-mpegURL, video/MP2T, video/3gpp">
+            <input class="form-control" type="file" multiple="" id="formFile" name="files" accept="image/png, image/jpeg, image/webp, image/jpg, video/mkv, video/mp4, application/x-mpegURL, video/MP2T, video/avi, video/x-matroska, video/3gpp">
             <button class="btn" type="button" id="customFileInput" onclick="document.getElementById('formFile').click();">Завантажте файли</button>
             <div class="invalid-feedback">
                 Завантажте файли.
@@ -451,11 +451,25 @@
 </div>
 
 <script src="/public/js/vanillajs-datepicker.js"></script>
-<script src="/public/js/axios.min.js?v=1803"></script>
+<script src="/public/js/axios.min.js?v=2103"></script>
 <script src="https://www.google.com/recaptcha/enterprise.js?render=6Le_V7MeAAAAAKZ9kPfj_NVex4siD8oErqRuy499"></script>
-<script src="/public/js/map.js?v=1803"></script>
-<script src="/public/js/app.js?v=1803"></script>
+
+<link rel="stylesheet" href="/public/leaflet.css">
+<script src="/public/js/leaflet.js"></script>
+<script src="/public/js/googleservicemap.js?v=2103"></script>
+<script src="/public/js/app.js?v=2103"></script>
+<script src="/public/js/calculator.hash.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABlYJtNFxfmGQHaBfy0gWmaPmJLM8s8S8&language=uk&libraries=places&callback=initMap"> </script>
+
+<style>
+    .progress {
+        background-color: grey;
+    }
+    .progress-bar {
+        overflow: visible;
+    }
+
+</style>
 
 </body>
 </html>
