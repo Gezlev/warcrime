@@ -11,8 +11,8 @@
     }
 
     let file_id = 1, drop_zone, is_crypto = false;
-    let md5 = false;
-    let sha1 = true;
+    let md5 = true;
+    let sha1 = false;
     let sha256 = false;
     let filesComplited = 0;
     let hashCount = files.length * (md5 + sha1 + sha256);
@@ -78,6 +78,7 @@
     }
 
     function updateFileHash(filename, type, result) {
+      console.log(type,result)
         files.setHash(filename, type,result);
         filesComplited++;
         if (filesComplited >= hashCount) {

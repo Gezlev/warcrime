@@ -14,7 +14,7 @@
                 if (!form.checkValidity()) {
                 } else {
                     document.querySelector("button[type='submit']").disabled = true;
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbygcv6waZLUssO4jJjA6Q5xnMOexT63QdLzk0AHTQh5ugxbkIMb0lBUgeiUgmNLt2Sh/exec';
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbw7KqP4ixKKT_WOJ5ZiCWbsL9G2TRVBAGS5HDjxUuYIsxfHVDqzSAmEBZIuyWBumRvUAg/exec';
                     const form = document.forms['contact-form'];
                     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                         .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))

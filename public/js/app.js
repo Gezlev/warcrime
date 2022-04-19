@@ -39,7 +39,6 @@ let rangepicker = new DateRangePicker(eventPeriod, {
                     const scriptURL = '/api' ;
                     const form = document.forms['google-sheet'];
                     let bodyFormData = new FormData(form);
-                    bodyFormData.append("copy", false);
                     bodyFormData.set("birthday", transformDate(form["birthday"].value));
                     if (form["eventStart"].value) {
                         bodyFormData.set("eventStart", transformDate(form["eventStart"].value) + " " + (form["timeStart"].value ? form["timeStart"].value : "00:00"));
@@ -59,6 +58,10 @@ let rangepicker = new DateRangePicker(eventPeriod, {
 
                     if (files.length > 0 && typeof files.getHash()[files[0].name]["SHA-1"] !== 'undefined') {
                         object["sha1"] = files.getHash()[files[0].name]["SHA-1"];
+                    }
+                    
+                    if (files.length > 0 && typeof files.getHash()[files[0].name]["MD5"] !== 'undefined') {
+                        object["MD5"] = files.getHash()[files[0].name]["MD5"];
                     }
                                                         
                     let json = JSON.stringify(object);
@@ -193,7 +196,6 @@ var fileUploadProgress = function(progressEvent, filename) {
 
 var uploadFiles = async function(files, fileUploadUrl, scriptURL, object) {
     let i = 0;
-    object.copy = true;
     let headers = {}
     let json;
 
@@ -204,6 +206,9 @@ var uploadFiles = async function(files, fileUploadUrl, scriptURL, object) {
 
             if (object?.sha1) {
                 headers["x-amz-meta-sha1"] =  object.sha1;
+            }
+            if (object?.md5) {
+                headers["x-amz-meta-md5"] =  object.md5;
             }
         
             await axios.put(fileUploadUrl, file, {
@@ -229,6 +234,9 @@ var uploadFiles = async function(files, fileUploadUrl, scriptURL, object) {
 
             if (typeof files.getHash()[files[i+1].name]["SHA-1"] !== 'undefined') {
                 object.sha1 = files.getHash()[files[i+1].name]["SHA-1"];
+            }
+            if (typeof files.getHash()[files[i+1].name]["MD5"] !== 'undefined') {
+                object.md5 = files.getHash()[files[i+1].name]["MD5"];
             }
 
             json = JSON.stringify(object);            
