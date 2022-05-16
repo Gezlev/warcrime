@@ -20,6 +20,8 @@
   }
 
   &__gerb {
+    flex: 0 0 70px;
+
     img {
       display: block;
       width: 50px;
@@ -29,6 +31,7 @@
   }
 
   &__ogp {
+    flex: 0 0 130px;
     display: flex;
     margin-right: 64px;
     line-height: 16px;
@@ -118,10 +121,96 @@
   }
 
   &__copy {
+    flex: 0 0 100%;
+    order: 3;
     display: block;
     margin-top: 28px;
     color: rgba(#FFF, 0.35);
     font-size: 12px;
     text-align: left;
+
+    @media (min-width: 768px) {
+      padding: 0 0 0 264px;
+    }
+  }
+
+  &__bottom {
+    @media (min-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    h4 {
+      flex: 0 0 100%;
+      padding: 0;
+      margin: 0 0 16px;
+      line-height: 20px;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+    }
+  }
+
+  &__social {
+    flex: 0 0 264px;
+    margin-top: 36px;
+    line-height: 16px;
+    font-size: 12px;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+
+      &:hover {
+        color: #99EECC;
+      }
+    }
+
+    img {
+      flex: 0 0 36px;
+      margin-right: 12px;
+      display: block;
+      width: 36px;
+      height: 36px;
+    }
+
+    b {
+      display: flex;
+      flex: 0 0 50px;
+      font-weight: 300;
+      text-decoration: none;
+    }
+
+    span {
+      flex: 0 0 40px;
+      display: block;
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.5);
+      box-sizing: border-box;
+    }
+  }
+
+  &__apps {
+    margin-top: 36px;
+
+    @media (min-width: 768px) {
+      order: 2;
+    }
+
+    a {
+      display: inline-block;
+      margin-right: 12px;
+
+      img {
+        display: block;
+        width: 115px;
+        height: 36px;
+      }
+    }
   }
 }
