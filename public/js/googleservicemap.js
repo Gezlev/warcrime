@@ -22,6 +22,7 @@
             entries.forEach(entry => {
                 if (!entry.isIntersecting && marker) {
                     getAddressByLatLng(false);
+                    getAddressByLatLngTomTom(false);
                 }
             });
 
@@ -61,6 +62,7 @@
 
     }
     function setAddressFields(result) {
+        console.log('setadd', result)
         result.forEach(element => {
             if (typeof document.forms[formName][element.types[0]] !== 'undefined') {document.forms[formName][element.types[0]].value = element.long_name }
         });
@@ -95,6 +97,7 @@
 
     function getAddressByLatLngTomTom(changeInput) {
         axios.get("https://api.tomtom.com/search/2/reverseGeocode/" + marker.getLatLng().lat + "," + marker.getLatLng().lng + ".json?language=uk-UA&key=9yfKHHdqJTvbPMayQXNEZ0zWRg9ISG2K").then(function(result) {
+            console.log(result.data);
             if (result.data?.addresses[0]?.address) {
                 let a = result.data?.addresses[0]?.address;
                 let b = {
@@ -104,7 +107,14 @@
                     "locality":  undefined || a.municipalitySubdivision,
                     "route":  undefined || a.streetName, 
                     "street_number":  undefined || a.streetNumber,
-                } ;
+                };
+                let c = [];
+                Object.entries(b).forEach(entry => {
+                    const [key, value] = entry;
+                    c.push({long_name: value, types: [key]})
+                  });
+                //console.log(c);
+                setAddressFields(c);
             }
 
         });
@@ -144,8 +154,8 @@
                 };
                 addMarker(pos);
                 setAddress();
-                getAddressByLatLng(true)
-
+           //     getAddressByLatLng(true)
+                getAddressByLatLngTomTom(true);
 
                 map.flyTo(pos, 14);
             }, function(error) {
