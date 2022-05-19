@@ -1,3 +1,38 @@
+const downloadApp = () => {
+    let modal = document.querySelector('.modal-app');
+    if (!modal) return;
+
+    const status = sessionStorage.getItem('apppopup');
+    const getOS = () => {
+        const ua = navigator.userAgent;
+        if (/android/i.test(ua)) {
+            return "Android"
+        } else if ( ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document) ) {
+            return "iOS"
+        }
+        return "Other"
+    };
+
+    let os = getOS();
+    console.log(status);
+    console.log(os);
+
+    if (os === 'iOS') {
+        modal.classList.add('modal-app_ios');
+    }
+
+    if ( (os === 'Android' || os === 'iOS') && status !== 'closed') {
+        setTimeout( () => modal.classList.add('visible'), 2000);
+    }
+
+    modal.querySelector('.modal-app__close').addEventListener('click', () => {
+        modal.classList.remove('visible');
+        sessionStorage.setItem('apppopup', 'closed');
+    }, {passive: true});
+};
+downloadApp();
+
+
 function generateSessionId() {
     return Date.now() + Math.random().toString(36).substring(2, 9);
 }

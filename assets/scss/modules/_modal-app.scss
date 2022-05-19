@@ -1,0 +1,117 @@
+.modal-app {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,0.8);
+
+  &__container {
+    position: relative;
+    max-width: 600px;
+    margin: 32px;
+    padding: 32px 32px 40px;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background-color: #FFF;
+
+    transform: translate3d(0,-12px,0);
+    opacity: 0;
+    transition: transform .3s ease-out 0s, opacity .2s ease-out;
+
+    a {
+      display: block;
+      width: 165px;
+      margin: 0 auto;
+
+      img {
+        display: block;
+        width: 165px;
+        height: 52px;
+      }
+
+      &:first-of-type {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    padding: 0 0 24px;
+    //text-align: center;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(0,0,0,0.6);
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__title {
+    padding: 12px 0 12px;
+    line-height: 32px;
+    font-size: 22px;
+    color: #000;
+  }
+
+  &__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #00c4a7;
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 2px;
+      height: 16px;
+      margin: -8px 0 0 -1px;
+      background: #FFF;
+
+      &:first-of-type {
+        transform: rotate(45deg);
+      }
+      &:last-of-type {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &_ios &__container a {
+    &:first-of-type {
+      display: block;
+    }
+    + a {
+      display: none;
+    }
+  }
+
+  transform: scale3d(0,0,1);
+  opacity: 0;
+  transition: opacity .2s ease-out .2s, transform 0s ease-out 0.2s;
+
+  &.visible {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+    transition: opacity .2s ease-out 0s, transform 0s ease-out 0s;
+  }
+
+  &.visible &__container {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+    transition: transform .3s ease-out .2s, opacity .2s ease-out .2s;
+  }
+}
