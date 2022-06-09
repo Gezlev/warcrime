@@ -14,8 +14,6 @@ const downloadApp = () => {
     };
 
     let os = getOS();
-    console.log(status);
-    console.log(os);
 
     if (os === 'iOS') {
         modal.classList.add('modal-app_ios');
@@ -71,10 +69,9 @@ let rangepicker = new DateRangePicker(eventPeriod, {
                 } else {
                     document.querySelector("button[type='submit']").disabled = true;
                     document.getElementById("sessionId").value = generateSessionId();
-                    const scriptURL = 'https://pe0gz3li04.execute-api.eu-central-1.amazonaws.com/api-dev' ; //'/api';
+                    const scriptURL = '/api' ;
                     const form = document.forms['google-sheet'];
                     let bodyFormData = new FormData(form);
-                    bodyFormData.append("copy", false);
                     bodyFormData.set("birthday", transformDate(form["birthday"].value));
                     if (form["eventStart"].value) {
                         bodyFormData.set("eventStart", transformDate(form["eventStart"].value) + " " + (form["timeStart"].value ? form["timeStart"].value : "00:00"));
@@ -84,12 +81,23 @@ let rangepicker = new DateRangePicker(eventPeriod, {
                     }
                     bodyFormData.delete("timeStart");
                     bodyFormData.delete("timeEnd");
+                    
+                    
                     let object = {};
                     bodyFormData.forEach((value, key) => object[key] = value);
                     object["eventType"] = bodyFormData.getAll('eventType');
-                    let json = JSON.stringify(object);
-                    let imagefile = document.getElementById('formFile');
+                    let files = document.getElementById('formFile').files;
                     let fileUploadUrl;
+
+                    if (files.length > 0 && typeof files.getHash()[files[0].name]["SHA-1"] !== 'undefined') {
+                        object["sha1"] = files.getHash()[files[0].name]["SHA-1"];
+                    }
+                    
+                    if (files.length > 0 && typeof files.getHash()[files[0].name]["MD5"] !== 'undefined') {
+                        object["MD5"] = files.getHash()[files[0].name]["MD5"];
+                    }
+                                                        
+                    let json = JSON.stringify(object);
 
                     axios({
                         method: "post",
@@ -112,7 +120,7 @@ let rangepicker = new DateRangePicker(eventPeriod, {
                                 event: 'analytics',
                                 analytics: {
                                     sessionId: form['sessionId'].value,
-                                    filesCount: imagefile.files.length,
+                                    filesCount: files.length,
                                     contactFields: contactFields,
                                     administrative_area_level_1: form['administrative_area_level_1'].value
                                 }
@@ -125,7 +133,7 @@ let rangepicker = new DateRangePicker(eventPeriod, {
                             }
                         })
                         .then(() => {
-                            uploadFiles(imagefile.files, fileUploadUrl, scriptURL, json.replace('"copy":"false"', '"copy":"true"'))
+                            uploadFiles(files, fileUploadUrl, scriptURL, object)
                                 .then(() => {
                                     document.getElementById("modal").style.display = "block";
                                 });
@@ -149,6 +157,7 @@ let rangepicker = new DateRangePicker(eventPeriod, {
 if (!navigator.geolocation) {
     document.getElementById("button-location").style.display = none;
 }
+
 
 let allowed_size_mb = 100;
 let inputs = document.getElementById('formFile');
@@ -177,14 +186,13 @@ inputs.addEventListener('change', function(e) {
         div.innerText = file.name;
         if (file.size > allowed_size_mb * 1024 * 1024) {
             div.classList.add("text-danger");
-            div.innerText += 'Файл може дового завантажуватися через великий розмір';
+            div.innerText +=  document.location.pathname.split("/")[1] == "en" ? "The file can be downloaded due to its large size" : "Файл може дового завантажуватися через великий розмір";
         }
         div.appendChild(span);
         div.appendChild(divProgressBar);
         document.getElementById("fileName").appendChild(div);
-
     }
-    ;
+    if (typeof calculateHash == 'function') calculateHash(e.target.files);
 });
 
 
@@ -212,21 +220,34 @@ const removeFileFromFileList = function(index, input) {
 
 var fileUploadProgress = function(progressEvent, filename) {
     let progressBar = document.querySelector("div.progress-bar[filename='" + filename + "']");
+    progressBar.classList.add('bg-success');
     let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
     progressBar.style.width = percentCompleted + "%";
     progressBar.innerText = percentCompleted + "%";
 
 }
-var uploadFiles = async function(files, fileUploadUrl, scriptURL, json) {
+
+var uploadFiles = async function(files, fileUploadUrl, scriptURL, object) {
     let i = 0;
+    let headers = {}
+    let json;
+
+
     for (const file of files) {
         if (!fileUploadUrl)
             return;
-        let formData = new FormData();
-        formData.append("image", file);
-        await axios.put(fileUploadUrl, file, {
+
+            if (object?.sha1) {
+                headers["x-amz-meta-sha1"] =  object.sha1;
+            }
+            if (object?.md5) {
+                headers["x-amz-meta-md5"] =  object.md5;
+            }
+        
+            await axios.put(fileUploadUrl, file, {
             headers: {
-                'Content-Type': file.type
+                'Content-Type': file.type,
+                ...headers
             },
             onUploadProgress: function(f, filename=file.name) {
                 fileUploadProgress(f, filename);
@@ -243,6 +264,15 @@ var uploadFiles = async function(files, fileUploadUrl, scriptURL, json) {
         });
 
         if (i < files.length - 1) {
+
+            if (typeof files.getHash()[files[i+1].name]["SHA-1"] !== 'undefined') {
+                object.sha1 = files.getHash()[files[i+1].name]["SHA-1"];
+            }
+            if (typeof files.getHash()[files[i+1].name]["MD5"] !== 'undefined') {
+                object.md5 = files.getHash()[files[i+1].name]["MD5"];
+            }
+
+            json = JSON.stringify(object);            
             await axios({
                 method: "post",
                 url: scriptURL,

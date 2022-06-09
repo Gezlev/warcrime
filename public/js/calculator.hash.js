@@ -78,7 +78,6 @@
     }
 
     function updateFileHash(filename, type, result) {
-      console.log(type,result)
         files.setHash(filename, type,result);
         filesComplited++;
         if (filesComplited >= hashCount) {
@@ -88,19 +87,32 @@
 
     // progress bar
     function handle_worker_event(filename) {
+
+      const translates = {
+        "fileReady": {
+            "ua": "Файл готовий до завантаження",
+            "en": "File ready for upload"
+        }, 
+        "fileProcess": {
+            "ua": "Готуємо до завантаження...",
+            "en": "Processing..."
+        }
+    }
+    let lang = document.location.pathname.split("/")[1] == "en" ? "en" : "ua";
+
       return function (event) {
         if (event.data.result) {
             updateFileHash(filename, 'md5', event.data.result);
             let progressBar = document.querySelector("div.progress-bar[filename='" + filename + "']");
             let percentCompleted = 100;
             progressBar.style.width = percentCompleted + "%";
-            progressBar.innerText = 'Файл готовий до завантаження';
+            progressBar.innerText = translates["fileReady"][lang];
         } else {
 
             let progressBar = document.querySelector("div.progress-bar[filename='" + filename + "']");
             let percentCompleted = Math.round(event.data.block.end * 100 / event.data.block.file_size);
             progressBar.style.width = percentCompleted + "%";
-            progressBar.innerText = 'Готуємо до завантаження... ' + percentCompleted + "%";
+            progressBar.innerText = translates["fileProcess"][lang] + percentCompleted + "%";
 
 
             //document.querySelector(id + ' .bar').style.width = event.data.block.end * 100 / event.data.block.file_size + '%';

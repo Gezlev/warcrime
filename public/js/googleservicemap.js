@@ -12,6 +12,17 @@
         iconSize: [marker_size, marker_size],
         iconAnchor: [22, 44],
     });
+    const translates = {
+        "markerCanMove": {
+            "ua": "Ти можеш мене рухати!",
+            "en": "You can move me!"
+        }, 
+        "noPermission": {
+            "ua": "Немає дозволу для визначення місцеположення",
+            "en": "No permission to determine location"
+        }
+    }
+    let lang = document.location.pathname.split("/")[1] == "en" ? "en" : "ua";
 
     function setupFormAddressFields(name) {
         formName = name;
@@ -132,7 +143,7 @@
         
           marker = L.marker(location, {
             draggable:true,
-            title:"Ти можеш мене рухати!",
+            title: translates["markerCanMove"][lang],
             icon: icon
           }).addTo(map);;
           
@@ -159,7 +170,7 @@
 
                 map.flyTo(pos, 14);
             }, function(error) {
-                showMessage("error", "Немає дозвілу на визначення місця розташування" + error.code);
+                showMessage("error", translates["noPermission"][lang] + error.code);
             });
         }
     }
