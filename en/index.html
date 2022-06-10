@@ -77,8 +77,12 @@
         <a href="#example">What to record</a>
         <a href="/en/qa.html">Questions and answers</a>
         <a class="header__social" href="https://www.facebook.com/warcrimesua/" target="_blank" rel="noopener noreferrer"><img src="/public/img/fb.svg" width="36" height="36" alt="warcrimes на Facebook" loading="lazy" decoding="async"></a>
-
+        <div class="header__lang">
+            <a href="/">UA</a>
+            <span>EN</span>
+        </div>
     </nav>
+    <div class="header__menu"><span></span><span></span><span></span></div>
 </header>
 
 <div class="top">
@@ -264,123 +268,134 @@
         <div class="fieldset">
             <label class="form-label">Type of event</label>
             <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="потерпілою є дитина (неповнолітня особа)" id="Check0">
                 <label class="form-check-label" for="Check0">
-                    the victim is a child (minor)
+                    <input class="form-check-input" name="eventType" type="checkbox" value="потерпілою є дитина (неповнолітня особа)" id="Check0">
+                    <small></small>
+                    <span>the victim is a child (minor)</span>
                 </label>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="пошкодження або знищення об’єктів дитячої інфраструктури (навчальні заклади, інтернати, лікарні тощо)" id="Check1_2">
-                <label class="form-check-label" for="Check1_2">
-                    damage or destruction of children's infrastructure (educational institutions, boarding schools, hospitals, etc.)
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="вбивства, поранення цивільних" id="Check1">
-                <label class="form-check-label" for="Check1">
-                    killings, injury of civilians
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="катування (побиття, зґвалтування, каліцтво)" id="Check2">
-                <label class="form-check-label" for="Check2">
-                    torture (beating, rape, mutilation)
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="утримання у заручниках чи полоні" id="Check3">
-                <label class="form-check-label" for="Check3">
-                    hostage-taking or captivity
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="вбивства, поранення медичного персоналу" id="Check4">
-                <label class="form-check-label" for="Check4">
-                    killing, injury of medical staff
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="вбивства, поранення духовенства, цивільного персоналу" id="Check5">
-                <label class="form-check-label" for="Check5">
-                    killings, injury of the clergy, civilian personnel
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="обстріли зі стрілецької зброї, артилерії чи військових повітряних засобів" id="Check6">
-                <label class="form-check-label" for="Check6">
-                    shelling from small arms, artillery or military aircraft
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="використання вогнепальної зброї" id="Check7">
-                <label class="form-check-label" for="Check7">
-                    use of firearms
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="пересування та застосування військової техніки у межах міст, селищ" id="Check8">
-                <label class="form-check-label" for="Check8">
-                    movement and use of military equipment within cities and towns
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="уламки снарядів у межах населеного пункту" id="Check9">
-                <label class="form-check-label" for="Check9">
-                    shell fragments within the settlement
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="використання цивільної інфраструктури з воєнною метою під прикриттям цивільних" id="Check10">
-                <label class="form-check-label" for="Check10">
-                    use of civilian infrastructure for military purposes under the guise of civilians
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="привласнення та руйнування майна, транспорту, привласнення чи знищення пального" id="Check11">
-                <label class="form-check-label" for="Check11">
-                    misappropriation and destruction of property, transport, misappropriation or destruction of fuel
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="руйнування культурних пам’яток" id="Check12">
-                <label class="form-check-label" for="Check12">
-                    destruction of cultural monuments
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="пошкодження обʼєктів цивільної інфраструктури" id="Check13">
-                <label class="form-check-label" for="Check13">
-                    damage to civilian infrastructure
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="пошкодження або знищення медичного транспорту, лікарень, обладнання" id="Check14">
-                <label class="form-check-label" for="Check14">
-                    damage or destruction of medical vehicles, hospitals, equipment
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="пошкодження або знищення культових споруд (храмів, мечетей, синагог)" id="Check15">
-                <label class="form-check-label" for="Check15">
-                    damage or destruction of religious buildings (temples, mosques, synagogues)
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та медичних установ" id="Check16">
-                <label class="form-check-label" for="Check16">
-                    use by the occupier of civilian clothes, uniform of the Armed Forces of Ukraine, emblems of humanitarian and medical institutions
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="eventType" type="checkbox" value="інше" id="Check17">
-                <label class="form-check-label" for="Check17">
-                    other
-                </label>
-            </div>
-              
-            
-        </div>
 
+            <div class="form-check">
+                <label class="form-check-label" for="Check1">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="вбивства, поранення цивільних" id="Check1">
+                    <small></small>
+                    <span>killings, injury of civilians</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check2">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="катування (побиття, зґвалтування, каліцтво)" id="Check2">
+                    <small></small>
+                    <span>torture (beating, rape, mutilation)</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check3">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="утримання у заручниках чи полоні" id="Check3">
+                    <small></small>
+                    <span>hostage-taking or captivity</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check4">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="вбивства, поранення медичного персоналу" id="Check4">
+                    <small></small>
+                    <span>killing, injury of medical staff</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check5">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="вбивства, поранення духовенства, цивільного персоналу" id="Check5">
+                    <small></small>
+                    <span>killings, injury of the clergy, civilian personnel</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check6">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="обстріли зі стрілецької зброї, артилерії чи військових повітряних засобів" id="Check6">
+                    <small></small>
+                    <span>shelling from small arms, artillery or military aircraft</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check7">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="використання вогнепальної зброї" id="Check7">
+                    <small></small>
+                    <span>use of firearms</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check8">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="пересування та застосування військової техніки у межах міст, селищ" id="Check8">
+                    <small></small>
+                    <span>movement and use of military equipment within cities and towns</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check9">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="уламки снарядів у межах населеного пункту" id="Check9">
+                    <small></small>
+                    <span>shell fragments within the settlement</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check10">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="використання цивільної інфраструктури з воєнною метою під прикриттям цивільних" id="Check10">
+                    <small></small>
+                    <span>use of civilian infrastructure for military purposes under the guise of civilians</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check11">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="привласнення та руйнування майна, транспорту, привласнення чи знищення пального" id="Check11">
+                    <small></small>
+                    <span>misappropriation and destruction of property, transport, misappropriation or destruction of fuel</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check12">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="руйнування культурних пам’яток" id="Check12">
+                    <small></small>
+                    <span>destruction of cultural monuments</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check13">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="пошкодження обʼєктів цивільної інфраструктури" id="Check13">
+                    <small></small>
+                    <span>damage to civilian infrastructure</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check14">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="пошкодження або знищення медичного транспорту, лікарень, обладнання" id="Check14">
+                    <small></small>
+                    <span>damage or destruction of medical vehicles, hospitals, equipment</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check15">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="пошкодження або знищення культових споруд (храмів, мечетей, синагог)" id="Check15">
+                    <small></small>
+                    <span>damage or destruction of religious buildings (temples, mosques, synagogues)</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check16">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="використання окупантом цивільного одягу, однострою ЗСУ, емблем гуманітарних та медичних установ" id="Check16">
+                    <small></small>
+                    <span>use by the occupier of civilian clothes, uniform of the Armed Forces of Ukraine, emblems of humanitarian and medical institutions</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="Check17">
+                    <input class="form-check-input" name="eventType" type="checkbox" value="інше" id="Check17">
+                    <small></small>
+                    <span>other</span>
+                </label>
+            </div>
+
+        </div>
 
         <div class="fieldset">
             <label class="form-label">Personal data of the enemy</label>
@@ -503,6 +518,55 @@
             <img src="/public/img/google-play.svg" width="166" height="52" alt="warcrimes in Google Play" loading="lazy" decoding="async">
         </a>
         <div class="modal-app__close"><span></span><span></span></div>
+    </div>
+</div>
+
+<div class="menu">
+    <div class="menu__container">
+        <div class="menu__header">
+            <div class="header__gerb"><img src="/public/img/logo-ukraine.svg" width="50" height="50" decoding="async" loading="lazy" alt="Ukraine logo"></div>
+            <div class="header__ogp"><a href="https://www.gp.gov.ua" target="_blank" noopener><img src="/public/img/logo-ogpu.svg" width="42" height="50" decoding="async" loading="lazy" alt="Office of the Prosecutor General"></a>Office<br>of the Prosecutor<br>General</div>
+            <div class="header__lang"><span>UA</span><a href="/en/">EN</a></div>
+            <div class="menu__close"><span></span><span></span></div>
+        </div>
+        <div class="menu__body">
+            <ul class="menu__nav">
+                <li><a href="/en/" class="menu__nav">Home</a></li>
+                <li><a href="/en/all-crimes.html" class="menu__nav">All crimes</a></li>
+                <li><a href="/en/qa.html" class="menu__nav">Questions and answer</a></li>
+                <li><a href="/en/what-is-crime.html" class="menu__nav">What is a war crime</a></li>
+                <li><a href="/en/sources.html" class="menu__nav">Sources of International Humanitarian Law</a></li>
+                <li><a href="/en/contact.html" class="menu__nav">Contacts</a></li>
+            </ul>
+            <div class="menu__footer">
+                <div class="menu__contact">Contacts for media: <a href="mailto:media@warcrimes.gov.ua">media@warcrimes.gov.ua</a></div>
+
+                <div class="footer__addlinks">
+                    <a href="/en/terms.html">Conditions of using the site </a>
+                    <a href="/en/privacy-policy.html">Privacy policy </a>
+                </div>
+
+                <div class="footer__bottom">
+                    <div class="footer__social">
+                        <h4>We in social networks:</h4>
+                        <a href="https://www.facebook.com/warcrimesua/" target="_blank" rel="noopener noreferrer">
+                            <img src="/public/img/fb.svg" width="36" height="36" alt="warcrimes in Facebook" loading="lazy" decoding="async">
+                            <b>Join us</b>
+                        </a>
+                    </div>
+                    <div class="footer__apps">
+                        <h4>Download mobile application:</h4>
+                        <a href="https://apps.apple.com/ua/app/rwc/id1614136479" title="Download from the  App Store" class="store-apple" target="_blank" rel="noopener noreferrer">
+                            <img src="/public/img/apple-store.svg" width="115" height="36" alt="warcrimes in App Store" loading="lazy" decoding="async">
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=ua.warcrime.app" title="Download from the  Google Play" target="_blank" rel="noopener noreferrer">
+                            <img src="/public/img/google-play.svg" width="115" height="36" alt="warcrimes in Google Play" loading="lazy" decoding="async">
+                        </a>
+                    </div>
+                    <div class="footer__copy">2022 © Office of the Prosecutor General. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

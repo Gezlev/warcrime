@@ -72,3 +72,45 @@
     display: flex;
   }
 }
+label + .form-check {
+  margin-top: 8px;
+}
+.form-check {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0 0 16px;
+
+  input {
+    display: block;
+    position: absolute;
+    margin: -100px 0 0 -100px;
+  }
+  label {
+    display: flex;
+    //align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  small {
+    flex: 0 0 24px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    box-sizing: border-box;
+    border: 2px solid #000;
+    background-repeat: no-repeat;
+    background-size: 16px auto;
+    background-position: 50% 3px;
+  }
+  span {
+    flex: 1 1 auto;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  input:checked + small {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxNiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA1TDYgMTAuNUwxNSAxIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=);
+  }
+}
