@@ -86,6 +86,9 @@ let rangepicker = new DateRangePicker(eventPeriod, {
                     let object = {};
                     bodyFormData.forEach((value, key) => object[key] = value);
                     object["eventType"] = bodyFormData.getAll('eventType');
+                    if (typeof object["tel"] !== 'undefined') {
+                        object["tel"] = object["tel"].replaceAll(" ", "");
+                    }
                     let files = document.getElementById('formFile').files;
                     let fileUploadUrl;
 
